@@ -422,6 +422,17 @@ details > div { padding-bottom: 18px; color: var(--muted); max-width: 64ch; disp
   .road li { border-right: 0; border-bottom: 2px solid var(--ink); }
   .road li:last-child { border-bottom: 0; }
 }
+
+/* Mobile menu */
+.menu-btn { display: none; align-items: center; gap: 6px; font-family: var(--f-pixel); font-weight: 500; font-size: 0.95rem; padding: 8px 12px; border: 2px solid var(--ink); border-radius: var(--radius); background: transparent; color: var(--ink); cursor: pointer; }
+.menu-btn[aria-expanded="true"] { background: var(--ink); color: var(--bg); }
+.mnav { border-top: 1px solid var(--line); background: var(--paper); padding: 4px max(16px, env(safe-area-inset-left, 0px)) 14px; }
+.mnav a { display: block; padding: 13px 0; border-bottom: 1px solid var(--line); text-decoration: none; font-family: var(--f-display); font-weight: 600; font-size: 1.05rem; color: var(--ink); }
+.mnav a:last-child { border-bottom: 0; }
+.mnav .mnav-theme { margin-top: 10px; }
+@media (max-width: 860px) { .menu-btn { display: inline-flex; } .nav-links { gap: 10px; } }
+@media (min-width: 861px) { .mnav { display: none !important; } }
+@media (max-width: 480px) { .nav-links .btn { padding: 9px 12px; font-size: 0.92rem; } .brand-mark { width: 26px; height: 26px; } }
 </style>
 </head>
 <body>
@@ -440,8 +451,17 @@ details > div { padding-bottom: 18px; color: var(--muted); max-width: 64ch; disp
       <a href="index.html#volunteer">Volunteer</a>
       <a href="support.html" aria-current="page">Support</a>
       <button class="theme-btn" id="theme-btn" type="button">Night</button>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="mnav">Menu</button>
       <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSduNY-VZFL6f6ZsAHeRQ4LFdbQPTM2TH-kKA3DKw26mgYKhSA/viewform" target="_blank" rel="noopener">Register</a>
     </div>
+  </div>
+  <div class="mnav" id="mnav" hidden>
+    <a href="index.html#model">How we teach</a>
+    <a href="index.html#conundrums">Conundrums</a>
+    <a href="index.html#programs">Programs</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#volunteer">Volunteer</a>
+    <a href="support.html">Support</a>
   </div>
 </nav>
 
@@ -606,7 +626,7 @@ details > div { padding-bottom: 18px; color: var(--muted); max-width: 64ch; disp
         <li>info@kidscodeandplay.org</li>
       </ul>
     </div>
-    <div class="fine"><span>© 2026 Kids Code and Play Club · Calgary, AB</span><span>// think · code · build · play</span></div>
+    <div class="fine"><span>© 2026 Kids Code and Play Club · Calgary, AB</span><span>// build it · break it · fix it</span></div>
   </div>
 </footer>
 <script>
@@ -627,6 +647,17 @@ details > div { padding-bottom: 18px; color: var(--muted); max-width: 64ch; disp
   themeBtn.addEventListener('click', function () { var n = isDark() ? 'light' : 'dark'; root.setAttribute('data-theme', n); try { localStorage.setItem('kcap-theme', n); } catch (e) {} sync(); });
   if (window.matchMedia) { var mq = matchMedia('(prefers-color-scheme: dark)'); if (mq.addEventListener) mq.addEventListener('change', sync); }
   sync();
+})();
+</script>
+
+<script>
+(function () {
+  var b = document.getElementById('menu-btn'), m = document.getElementById('mnav');
+  if (!b || !m) return;
+  function set(open) { m.hidden = !open; b.setAttribute('aria-expanded', open ? 'true' : 'false'); b.textContent = open ? 'Close' : 'Menu'; }
+  b.addEventListener('click', function () { set(m.hidden); });
+  m.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
 })();
 </script>
 </body>
