@@ -1,0 +1,1327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kids Code and Play | Free coding classes for kids in Alberta</title>
+<meta name="description" content="Kids Code and Play is a registered Alberta non-profit offering free, live coding classes for kids ages 5–15. Cohort 3 starts Sunday, November 29.">
+<meta property="og:title" content="Kids Code and Play: Cohort 3 starts Sunday, November 29">
+<meta property="og:description" content="Free, live Sunday coding classes for kids ages 5–15. Think. Code. Build. Play.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' shape-rendering='crispEdges'%3E%3Crect width='10' height='10' fill='%23D9501F'/%3E%3Crect x='1' y='1' width='2' height='2' fill='%23E9A92A'/%3E%3Cpath d='M4 4h2v1h1v1h1v1h1v1h1v2H0V8h1V7h1V6h1V5h1z' fill='%2315213B'/%3E%3Crect x='4' y='4' width='2' height='1' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@500&family=Pixelify+Sans:wght@500;700&display=swap">
+<style>
+body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+/* Layout: a prairie dawn. Pixel Rockies under a chinook arch open the page; the rest reads like a well-run school handbook with one bold pixel accent per section. */
+:root {
+  --bg: #F4F6FA;
+  --paper: #FFFFFF;
+  --ink: #15213B;
+  --muted: #4B5774;
+  --line: #D9DFEA;
+  --sun: #D9501F;
+  --sun-ink: #FFFFFF;
+  --gold: #E9A92A;
+  --pine: #1C7558;
+  --sky: #2C5AA6;
+  --tint-sun: #FCEBE3;
+  --tint-pine: #E2F2EB;
+  --tint-sky: #E4ECF8;
+  --tint-gold: #FBF1DC;
+  --hero-top: #F9D9B8;
+  --hero-mid: #F6E9DD;
+  --hero-ink: #15213B;
+  --peak-back: #8A9BC0;
+  --peak-front: #3E4F78;
+  --snow: #FFFFFF;
+  --prairie: #C99A3E;
+  --cloud: #E9EEF6;
+
+  --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Atkinson Hyperlegible", "Verdana", "Segoe UI", system-ui, sans-serif;
+  --f-pixel: "Pixelify Sans", "Courier New", monospace;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.3rem;
+  --step-2: 1.7rem;
+  --step-3: clamp(1.9rem, 1.4rem + 2vw, 2.6rem);
+  --step-4: clamp(2.3rem, 1.5rem + 3.6vw, 4rem);
+  --radius: 6px;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1322; --paper: #151D31; --ink: #EDF1F8; --muted: #A5AFC5; --line: #28334D;
+    --sun: #FF7E4A; --sun-ink: #1A0E08; --gold: #F5C25A; --pine: #4CC195; --sky: #86A8EA;
+    --tint-sun: #2B1A16; --tint-pine: #13281F; --tint-sky: #172238; --tint-gold: #2A2316;
+    --hero-top: #1B2547; --hero-mid: #0F1830; --hero-ink: #EDF1F8;
+    --peak-back: #34446C; --peak-front: #1E2A49; --snow: #C9D6EE; --prairie: #6B5626; --cloud: #24304F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1322; --paper: #151D31; --ink: #EDF1F8; --muted: #A5AFC5; --line: #28334D;
+  --sun: #FF7E4A; --sun-ink: #1A0E08; --gold: #F5C25A; --pine: #4CC195; --sky: #86A8EA;
+  --tint-sun: #2B1A16; --tint-pine: #13281F; --tint-sky: #172238; --tint-gold: #2A2316;
+  --hero-top: #1B2547; --hero-mid: #0F1830; --hero-ink: #EDF1F8;
+  --peak-back: #34446C; --peak-front: #1E2A49; --snow: #C9D6EE; --prairie: #6B5626; --cloud: #24304F;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--f-body); font-size: var(--step-0); line-height: 1.6;
+  overflow-x: hidden;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.12; text-wrap: balance; margin: 0; }
+h2 { font-size: var(--step-3); font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: var(--step-1); font-weight: 600; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 3px; }
+
+.band { padding-left: var(--gutter); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.inner { max-width: 1120px; margin: 0 auto; }
+.section { padding-block: clamp(56px, 8vw, 104px); }
+.eyebrow { font-family: var(--f-pixel); font-weight: 500; font-size: 0.95rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--sun); }
+.lede { color: var(--muted); max-width: 62ch; font-size: var(--step-1); line-height: 1.5; }
+.head { display: grid; gap: 14px; margin-bottom: clamp(28px, 4vw, 48px); max-width: 760px; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  font-family: var(--f-display); font-weight: 600; font-size: 1rem;
+  padding: 13px 22px; border-radius: var(--radius); border: 2px solid transparent;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn-primary { background: var(--sun); color: var(--sun-ink); box-shadow: 4px 4px 0 var(--ink); }
+.btn-primary:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-ghost:hover { background: var(--ink); color: var(--bg); }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn-primary:hover { transform: none; } }
+
+/* Relaunch strip + nav */
+.strip { background: var(--ink); color: var(--bg); font-size: var(--step--1); }
+.strip .inner { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; justify-content: center; padding-block: 9px; text-align: center; }
+.strip b { font-family: var(--f-pixel); font-weight: 700; color: var(--gold); letter-spacing: 0.04em; }
+.strip a { color: var(--gold); font-weight: 700; }
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); border-bottom: 1px solid var(--line); }
+.nav .inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--f-display); font-weight: 800; font-size: 1.1rem; white-space: nowrap; }
+.brand-mark { width: 30px; height: 30px; flex: none; image-rendering: pixelated; }
+.brand span { color: var(--sun); }
+.nav-links { display: flex; align-items: center; gap: 22px; font-size: 0.95rem; }
+.nav-links a { text-decoration: none; color: var(--muted); }
+.nav-links a:hover { color: var(--ink); }
+.nav-links .btn { padding: 9px 16px; color: var(--sun-ink); }
+@media (max-width: 860px) { .nav-links a:not(.btn) { display: none; } }
+
+/* Hero */
+.hero { position: relative; background: linear-gradient(180deg, var(--hero-top) 0%, var(--hero-mid) 62%, var(--bg) 100%); color: var(--hero-ink); overflow: hidden; }
+.hero .inner { position: relative; z-index: 2; padding-block: clamp(48px, 7vw, 88px) 0; display: grid; gap: 22px; }
+.hero h1 { font-size: var(--step-4); font-weight: 800; letter-spacing: -0.02em; max-width: 15ch; }
+.hero h1 .px { font-family: var(--f-pixel); font-weight: 700; color: var(--sun); letter-spacing: 0; }
+.hero-sub { font-size: var(--step-1); line-height: 1.5; max-width: 52ch; color: var(--muted); }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero-facts { display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: var(--f-mono); font-size: 0.82rem; color: var(--muted); }
+.hero-facts span::before { content: "■ "; color: var(--pine); }
+.range { display: block; width: 100%; height: clamp(170px, 26vw, 300px); margin-top: clamp(8px, 2vw, 24px); image-rendering: pixelated; }
+
+/* Pillars */
+.mission { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.mission h2 { font-size: var(--step-3); }
+.pillars { display: grid; gap: 0; border-top: 2px solid var(--ink); }
+.pillar { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.pillar dt { font-family: var(--f-pixel); font-weight: 700; color: var(--sun); font-size: 1.05rem; }
+.pillar dd { margin: 0; color: var(--muted); }
+.pillar dd b { color: var(--ink); }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 28px; }
+.stat { border-left: 3px solid var(--gold); padding-left: 12px; }
+.stat strong { display: block; font-family: var(--f-display); font-size: var(--step-2); font-weight: 800; font-variant-numeric: tabular-nums; }
+.stat span { font-size: var(--step--1); color: var(--muted); }
+.ph { background: var(--tint-gold); outline: 1px dashed var(--gold); padding: 0 4px; border-radius: 3px; }
+@media (max-width: 820px) { .mission { grid-template-columns: 1fr; } }
+
+/* Model */
+.model-band { background: var(--paper); border-block: 1px solid var(--line); }
+.model { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 2px solid var(--ink); border-radius: var(--radius); overflow: hidden; }
+.stage { padding: 24px 22px 26px; display: grid; gap: 10px; align-content: start; border-right: 2px solid var(--ink); position: relative; min-width: 0; }
+.stage:last-child { border-right: 0; }
+.stage:nth-child(1) { background: var(--tint-sky); }
+.stage:nth-child(2) { background: var(--tint-pine); }
+.stage:nth-child(3) { background: var(--tint-sun); }
+.stage:nth-child(4) { background: var(--tint-gold); }
+.stage-word { font-family: var(--f-pixel); font-weight: 700; font-size: clamp(2rem, 1.4rem + 2vw, 2.8rem); line-height: 1; }
+.stage:nth-child(1) .stage-word { color: var(--sky); }
+.stage:nth-child(2) .stage-word { color: var(--pine); }
+.stage:nth-child(3) .stage-word { color: var(--sun); }
+.stage:nth-child(4) .stage-word { color: var(--gold); }
+.stage h3 { font-size: 1.08rem; }
+.stage p { color: var(--muted); font-size: 0.97rem; }
+.tool { font-family: var(--f-mono); font-size: 0.78rem; color: var(--ink); opacity: .8; }
+.stage:not(:last-child)::after { content: "→"; position: absolute; right: -14px; top: 26px; width: 26px; height: 26px; display: grid; place-items: center; background: var(--ink); color: var(--bg); font-weight: 700; z-index: 1; border-radius: 3px; }
+@media (max-width: 900px) {
+  .model { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stage:nth-child(2) { border-right: 0; }
+  .stage:nth-child(1), .stage:nth-child(2) { border-bottom: 2px solid var(--ink); }
+  .stage:nth-child(2)::after { display: none; }
+}
+@media (max-width: 520px) {
+  .model { grid-template-columns: 1fr; }
+  .stage { border-right: 0; border-bottom: 2px solid var(--ink); }
+  .stage:last-child { border-bottom: 0; }
+  .stage:not(:last-child)::after { right: 22px; top: auto; bottom: -14px; content: "↓"; display: grid; }
+}
+
+/* Sunday schedule */
+.sunday { display: grid; grid-template-columns: 0.9fr 1.4fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.sunday .note { margin-top: 18px; font-size: 0.95rem; color: var(--muted); max-width: 44ch; }
+.schedule { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.slot { display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: 16px; align-items: baseline; padding-block: 16px; border-bottom: 1px solid var(--line); }
+.slot time { font-family: var(--f-mono); font-size: 0.9rem; font-variant-numeric: tabular-nums; color: var(--muted); }
+.slot h3 { font-size: 1.05rem; margin-bottom: 2px; }
+.slot p { color: var(--muted); font-size: 0.95rem; }
+.skill { font-family: var(--f-pixel); font-weight: 500; font-size: 0.8rem; padding: 3px 8px; border-radius: 3px; white-space: nowrap; background: var(--tint-sky); color: var(--sky); }
+.skill.pine { background: var(--tint-pine); color: var(--pine); }
+.skill.sun { background: var(--tint-sun); color: var(--sun); }
+.skill.gold { background: var(--tint-gold); color: var(--ink); }
+@media (max-width: 820px) { .sunday { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .slot { grid-template-columns: 60px minmax(0, 1fr); } .slot .skill { grid-column: 2; justify-self: start; } }
+
+/* Conundrum */
+.conundrum-band { background: var(--ink); color: var(--bg); }
+.conundrum-band .eyebrow { color: var(--gold); }
+.conundrum-band .lede { color: color-mix(in srgb, var(--bg) 75%, var(--ink)); }
+.conundrum { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.cn-card { background: var(--bg); color: var(--ink); border-radius: var(--radius); padding: clamp(20px, 3vw, 32px); display: grid; gap: 16px; box-shadow: 6px 6px 0 var(--sun); min-width: 0; }
+.cn-card h3 { font-size: var(--step-2); font-weight: 800; }
+.cn-card p { color: var(--muted); }
+.teams { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+.team-btn { font: inherit; font-size: 0.95rem; text-align: left; padding: 10px 12px; border-radius: var(--radius); border: 2px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; }
+.team-btn:hover { border-color: var(--ink); }
+.team-btn[aria-pressed="true"] { border-color: var(--sun); background: var(--tint-sun); font-weight: 700; }
+.verdict { font-family: var(--f-display); font-weight: 600; min-height: 1.6em; color: var(--ink); }
+.cn-card .btn-ghost { justify-self: start; }
+.credit { font-size: var(--step--1); color: var(--muted); }
+.why { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 12px; }
+.why li { padding-left: 26px; position: relative; color: color-mix(in srgb, var(--bg) 82%, var(--ink)); }
+.why li::before { content: ""; position: absolute; left: 0; top: .55em; width: 10px; height: 10px; background: var(--gold); }
+@media (max-width: 820px) { .conundrum { grid-template-columns: 1fr; } }
+
+/* Programs */
+.programs { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 18px; align-items: stretch; }
+.prog { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.prog.main { border: 2px solid var(--ink); box-shadow: 6px 6px 0 var(--pine); }
+.status { font-family: var(--f-pixel); font-weight: 500; font-size: 0.82rem; padding: 3px 9px; border-radius: 3px; align-self: flex-start; }
+.status.open { background: var(--pine); color: var(--bg); }
+.status.soon { background: var(--tint-gold); color: var(--ink); outline: 1px solid var(--gold); }
+.status.paused { background: var(--tint-sky); color: var(--sky); }
+.prog h3 { font-size: var(--step-2); font-weight: 800; }
+.ages { font-family: var(--f-mono); font-size: 0.85rem; color: var(--muted); }
+.prog p, .prog li { color: var(--muted); font-size: 0.97rem; }
+.prog ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.prog .btn { margin-top: auto; align-self: flex-start; }
+.prog .fine-print { font-size: 0.8rem; opacity: .85; }
+.copyline { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: auto; }
+.copyline code { font-family: var(--f-mono); font-size: 0.85rem; background: var(--bg); padding: 6px 8px; border-radius: 3px; user-select: all; word-break: break-all; }
+.copy { font: inherit; font-size: 0.85rem; padding: 6px 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 3px; cursor: pointer; }
+.copy:hover { border-color: var(--ink); }
+@media (max-width: 900px) { .programs { grid-template-columns: 1fr 1fr; } .prog.main { grid-column: 1 / -1; } }
+@media (max-width: 560px) { .programs { grid-template-columns: 1fr; } }
+
+/* Join */
+.join-band { background: var(--paper); border-block: 1px solid var(--line); }
+.steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; counter-reset: step; }
+.step { border-top: 4px solid var(--ink); padding-top: 18px; display: grid; gap: 8px; align-content: start; }
+.step-n { font-family: var(--f-pixel); font-weight: 700; font-size: 2.2rem; line-height: 1; color: var(--sun); }
+.step p { color: var(--muted); }
+.next { margin-top: clamp(32px, 4vw, 48px); display: grid; grid-template-columns: auto 1fr; gap: 18px 28px; align-items: start; background: var(--tint-pine); border-radius: var(--radius); padding: clamp(20px, 3vw, 28px); }
+.next h3 { font-size: 1.1rem; }
+.next ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.next li { display: grid; gap: 2px; }
+.next li b { font-family: var(--f-mono); font-size: 0.85rem; color: var(--pine); }
+.next li span { font-size: 0.95rem; }
+@media (max-width: 820px) { .steps { grid-template-columns: 1fr; } .next { grid-template-columns: 1fr; } .next ol { grid-template-columns: 1fr 1fr; } }
+
+/* Volunteer */
+.vol { display: grid; grid-template-columns: 0.9fr 1.3fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.vol-why li { color: var(--muted); }
+.vol-why li b { color: var(--ink); }
+.vol-note { margin-top: 22px; font-size: 0.92rem; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 12px; max-width: 48ch; }
+.vol-form { background: var(--paper); border: 2px solid var(--ink); border-radius: var(--radius); box-shadow: 6px 6px 0 var(--pine); padding: clamp(20px, 3vw, 30px); display: grid; gap: 16px; min-width: 0; }
+.vol-form label { display: grid; gap: 6px; font-family: var(--f-display); font-weight: 600; font-size: 0.97rem; }
+.vol-form .opt { font-family: var(--f-body); font-weight: 400; color: var(--muted); font-size: 0.88rem; }
+.vol-form input[type="text"], .vol-form input[type="email"], .vol-form input[type="tel"], .vol-form select, .vol-form textarea {
+  font: inherit; font-family: var(--f-body); font-weight: 400; font-size: 1rem; width: 100%; min-width: 0;
+  padding: 10px 12px; border: 2px solid var(--line); border-radius: var(--radius); background: var(--bg); color: var(--ink);
+}
+.vol-form input:focus, .vol-form select:focus, .vol-form textarea:focus { outline: none; border-color: var(--sun); }
+.vol-form textarea { resize: vertical; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: end; }
+.vol-form fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 8px; }
+.vol-form legend { font-family: var(--f-display); font-weight: 600; font-size: 0.97rem; padding: 0; margin-bottom: 8px; }
+.checks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.vol-form label.check { display: flex; align-items: flex-start; gap: 10px; font-family: var(--f-body); font-weight: 400; font-size: 0.95rem; color: var(--ink); }
+.vol-form .check input { width: 18px; height: 18px; margin-top: 3px; flex: none; accent-color: var(--sun); }
+.vol-form button { justify-self: start; cursor: pointer; }
+.vol-status { font-family: var(--f-display); font-weight: 600; min-height: 1.4em; }
+.vol-status.ok { color: var(--pine); }
+.vol-status.err { color: var(--sun); }
+.person.founder { grid-column: 1 / -1; border: 2px solid var(--ink); grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); gap: 8px 32px; align-items: start; border: 2px solid var(--ink); }
+.founder h3 { font-size: var(--step-2); font-weight: 800; margin-top: 4px; }
+.founder-cta { grid-column: 2; }
+.founder-cta a { color: var(--sun); font-weight: 700; }
+@media (max-width: 820px) { .vol { grid-template-columns: 1fr; } .founder { grid-template-columns: 1fr; } .founder-cta { grid-column: 1; } }
+@media (max-width: 560px) { .row2, .checks { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .theme-btn { display: none; } .brand { font-size: 1rem; } }
+
+/* Snow */
+.snow { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+.hero { cursor: default; }
+.snow-hint { position: absolute; right: max(16px, env(safe-area-inset-right, 0px)); top: 14px; z-index: 2; font-family: var(--f-pixel); font-size: 0.8rem; color: var(--muted); opacity: .75; margin: 0; pointer-events: none; transition: opacity .6s ease; }
+.snow-hint.gone { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .snow, .snow-hint { display: none; } }
+
+/* Build it. Break it. Fix it. */
+.tagline { font-family: var(--f-pixel); font-weight: 700; font-size: clamp(1.2rem, 1rem + 1vw, 1.6rem); letter-spacing: 0.02em; color: var(--ink); margin-top: -6px; }
+.tagline span, .bbf h2 .brk { color: var(--sun); }
+.bbf-band { background: var(--paper); border-block: 1px solid var(--line); }
+.bbf { display: grid; grid-template-columns: 0.85fr 1.25fr; gap: clamp(28px, 5vw, 64px); align-items: start; }
+.bbf-steps { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 10px; counter-reset: s; }
+.bbf-steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: baseline; color: var(--muted); padding: 10px 12px; border-radius: var(--radius); border: 2px solid transparent; transition: background .2s ease, border-color .2s ease; }
+.bbf-steps li::before { content: counter(s); font-family: var(--f-pixel); font-weight: 700; font-size: 1.4rem; color: var(--muted); line-height: 1; }
+.bbf-steps li b { color: var(--ink); }
+.bbf-steps li.on { background: var(--tint-sun); border-color: var(--sun); }
+.bbf-steps li.on::before { color: var(--sun); }
+.bbf-steps li.done::before { content: "✓"; color: var(--pine); }
+.ide { background: #0F1830; color: #E6ECF7; border-radius: var(--radius); border: 2px solid var(--ink); box-shadow: 6px 6px 0 var(--sun); overflow: hidden; min-width: 0; }
+.ide-bar { display: flex; align-items: center; gap: 14px; padding: 8px 14px; background: #1B2547; font-family: var(--f-mono); font-size: 0.8rem; color: #A5AFC5; }
+.ide-dots { letter-spacing: 3px; color: #FF7E4A; font-size: 0.7rem; }
+.ide-code { margin: 0; padding: 16px 0; font-family: var(--f-mono); font-size: clamp(0.78rem, 0.72rem + 0.25vw, 0.92rem); line-height: 1.75; overflow-x: auto; counter-reset: ln; white-space: pre; }
+.ide-code .ln { display: block; padding: 0 16px 0 0; counter-increment: ln; transition: background .25s ease; }
+.ide-code .ln::before { content: counter(ln); display: inline-block; width: 2.6em; padding-right: 1em; text-align: right; color: #56638A; user-select: none; }
+.ide-code .ln.changed { background: rgba(245, 194, 90, 0.14); }
+.ide-code .ln.err { background: rgba(255, 126, 74, 0.22); box-shadow: inset 3px 0 0 #FF7E4A; }
+.ide-code .ln.fixed { background: rgba(76, 193, 149, 0.18); box-shadow: inset 3px 0 0 #4CC195; }
+.ide-code .k { color: #C9A2FF; }
+.ide-code .s { color: #8FE3B5; }
+.ide-code .f { color: #86C5FF; }
+.ide-btns { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 16px 14px; }
+.ide-btn { font-family: var(--f-display); font-weight: 600; font-size: 0.95rem; padding: 9px 16px; border-radius: var(--radius); border: 2px solid transparent; cursor: pointer; }
+.ide-btn.run { background: #4CC195; color: #0B1A13; }
+.ide-btn.brk { background: transparent; color: #FFB08F; border-color: #FF7E4A; }
+.ide-btn:disabled { opacity: .35; cursor: not-allowed; }
+.ide-btn:not(:disabled):hover { filter: brightness(1.1); }
+.ide-out { margin: 0 16px 16px; padding: 12px 14px; min-height: 3.4em; background: #070C18; border-radius: 4px; font-family: var(--f-mono); font-size: 0.85rem; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+.ide-out .dim { color: #6B7799; }
+.ide-out .ok { color: #8FE3B5; }
+.ide-out .bad { color: #FF9C75; }
+.ide-fix, .ide-win { margin: 0 16px 16px; padding: 14px; border-radius: 4px; background: #1B2547; }
+.ide-q { font-family: var(--f-display); font-weight: 600; margin-bottom: 10px; }
+.ide-opts { display: grid; gap: 8px; }
+.ide-opt { text-align: left; font: inherit; font-size: 0.92rem; padding: 10px 12px; border-radius: 4px; border: 2px solid #34446C; background: #0F1830; color: #E6ECF7; cursor: pointer; }
+.ide-opt code { font-family: var(--f-mono); font-size: 0.85rem; color: #FFD58A; }
+.ide-opt:hover { border-color: #86A8EA; }
+.ide-opt.wrong { border-color: #FF7E4A; opacity: .7; }
+.ide-win p { color: #E6ECF7; }
+.ide-win p b { color: #8FE3B5; }
+.ide-win-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.ide-win .btn-primary { box-shadow: 4px 4px 0 #000; }
+@media (max-width: 860px) { .bbf { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .bbf-steps li, .ide-code .ln { transition: none; } }
+
+/* Story */
+.story { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; position: relative; }
+.story::before { content: ""; position: absolute; left: 0; right: 0; top: 9px; height: 2px; background: repeating-linear-gradient(90deg, var(--ink) 0 8px, transparent 8px 14px); }
+.story li { position: relative; padding: 34px 18px 0 0; display: grid; gap: 6px; align-content: start; }
+.story li::before { content: ""; position: absolute; top: 2px; left: 0; width: 16px; height: 16px; background: var(--sun); outline: 3px solid var(--bg); }
+.story li:last-child::before { background: var(--pine); }
+.story time { font-family: var(--f-mono); font-size: 0.85rem; color: var(--muted); }
+.story h3 { font-size: 1.1rem; }
+.story p { color: var(--muted); font-size: 0.95rem; }
+@media (max-width: 820px) {
+  .story { grid-template-columns: 1fr; padding-left: 28px; }
+  .story::before { left: 7px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; background: repeating-linear-gradient(180deg, var(--ink) 0 8px, transparent 8px 14px); }
+  .story li { padding: 0 0 26px; }
+  .story li::before { left: -28px; }
+}
+
+/* Voices + team */
+.voices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.voice { margin: 0; display: grid; gap: 14px; align-content: start; border-top: 2px solid var(--ink); padding-top: 18px; }
+.voice blockquote { margin: 0; font-size: 1.04rem; }
+.voice figcaption { font-family: var(--f-mono); font-size: 0.82rem; color: var(--muted); }
+.team { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: clamp(40px, 6vw, 72px); }
+.person { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: grid; gap: 8px; align-content: start; }
+.person .role { font-family: var(--f-pixel); font-size: 0.85rem; color: var(--sun); }
+.person p { color: var(--muted); font-size: 0.95rem; }
+@media (max-width: 820px) { .voices, .team { grid-template-columns: 1fr; } }
+
+/* FAQ */
+.faq { display: grid; grid-template-columns: 0.8fr 1.6fr; gap: clamp(28px, 5vw, 64px); }
+.faq-list { border-top: 2px solid var(--ink); }
+.faq-group { font-family: var(--f-pixel); font-size: 0.9rem; color: var(--sun); padding-top: 22px; padding-bottom: 4px; }
+details { border-bottom: 1px solid var(--line); }
+summary { cursor: pointer; list-style: none; padding: 16px 32px 16px 0; font-family: var(--f-display); font-weight: 600; font-size: 1.06rem; position: relative; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; position: absolute; right: 4px; top: 12px; font-family: var(--f-pixel); font-size: 1.4rem; color: var(--sun); }
+details[open] summary::after { content: "–"; }
+details > div { padding-bottom: 18px; color: var(--muted); max-width: 64ch; display: grid; gap: 8px; }
+@media (max-width: 820px) { .faq { grid-template-columns: 1fr; } }
+
+/* Support */
+.support-band { background: var(--tint-sun); }
+.support { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.sup { background: var(--paper); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; gap: 12px; border: 1px solid var(--line); min-width: 0; }
+.sup.lead { border: 2px solid var(--ink); }
+.sup h3 { font-size: var(--step-1); font-weight: 800; }
+.sup p { color: var(--muted); font-size: 0.97rem; }
+.sup-ctas { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px; }
+.reg { margin-top: 26px; font-family: var(--f-mono); font-size: 0.82rem; color: var(--muted); }
+@media (max-width: 820px) { .support { grid-template-columns: 1fr; } }
+
+/* Footer */
+.footer { background: var(--ink); color: color-mix(in srgb, var(--bg) 80%, var(--ink)); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.footer .inner { padding-block: 48px 28px; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 28px; }
+.footer .brand { color: var(--bg); }
+.footer h4 { margin: 0 0 10px; font-family: var(--f-pixel); font-weight: 500; color: var(--gold); font-size: 0.9rem; }
+.footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 0.95rem; }
+.footer a { text-decoration: none; }
+.footer a:hover { color: var(--bg); text-decoration: underline; }
+.footer .fine { grid-column: 1 / -1; border-top: 1px solid color-mix(in srgb, var(--bg) 20%, var(--ink)); padding-top: 18px; font-size: 0.82rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+.footer .fine span:last-child { font-family: var(--f-pixel); color: var(--gold); }
+@media (max-width: 720px) { .footer .inner { grid-template-columns: 1fr; } }
+
+/* Interactive additions */
+.theme-btn { font-family: var(--f-pixel); font-weight: 500; font-size: 0.9rem; padding: 7px 12px; border: 2px solid var(--ink); border-radius: var(--radius); background: transparent; color: var(--ink); cursor: pointer; }
+.theme-btn:hover { background: var(--ink); color: var(--bg); }
+.countdown { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; justify-self: start; background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: var(--radius); box-shadow: 4px 4px 0 var(--sun); }
+.cd-label { font-family: var(--f-pixel); font-size: 0.9rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.05em; }
+.cd-num { font-family: var(--f-pixel); font-weight: 700; font-size: clamp(1.3rem, 1rem + 1.4vw, 1.9rem); font-variant-numeric: tabular-nums; }
+.countdown.live .cd-num { color: var(--gold); }
+
+.slot { transition: background .2s ease; padding-inline: 8px; margin-inline: -8px; border-radius: 3px; }
+.slot.now { background: var(--tint-sun); }
+.slot.now time::after { content: " LIVE"; font-family: var(--f-pixel); color: var(--sun); font-size: 0.75rem; }
+.live-note { margin-top: 14px; font-family: var(--f-pixel); font-size: 0.95rem; color: var(--pine); }
+
+.more-cn { grid-column: 1 / -1; display: grid; gap: 14px; margin-top: clamp(12px, 3vw, 24px); }
+.cn-tiles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.cn-tile { display: grid; gap: 8px; align-content: start; text-decoration: none; padding: 16px; border-radius: var(--radius); background: var(--paper); color: var(--ink); border: 2px solid transparent; transition: transform .15s ease, border-color .15s ease; min-width: 0; }
+.cn-tile:hover { transform: translateY(-3px); border-color: var(--gold); }
+.cn-tile b { font-family: var(--f-display); font-weight: 600; font-size: 0.98rem; line-height: 1.25; }
+.cn-tile > span:last-child { font-size: 0.85rem; color: var(--muted); }
+.cn-px { font-family: var(--f-pixel); font-weight: 700; font-size: 1.6rem; line-height: 1; width: 38px; height: 38px; display: grid; place-items: center; border-radius: 3px; }
+.cn-tile.sky .cn-px { background: var(--tint-sky); color: var(--sky); }
+.cn-tile.pine .cn-px { background: var(--tint-pine); color: var(--pine); }
+.cn-tile.sun .cn-px { background: var(--tint-sun); color: var(--sun); }
+.cn-tile.gold .cn-px { background: var(--tint-gold); color: var(--ink); }
+@media (max-width: 900px) { .cn-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .cn-tiles { grid-template-columns: 1fr 1fr; } }
+
+.picker { display: grid; gap: 10px; background: var(--paper); border: 2px solid var(--ink); border-radius: var(--radius); padding: clamp(18px, 3vw, 26px); margin-bottom: 22px; }
+.picker label { font-family: var(--f-display); font-weight: 800; font-size: var(--step-1); }
+.picker-row { display: flex; align-items: center; gap: 16px; }
+.picker input[type="range"] { flex: 1; min-width: 0; accent-color: var(--sun); height: 28px; }
+.picker output { font-family: var(--f-pixel); font-weight: 700; font-size: 2rem; min-width: 2.5ch; text-align: right; color: var(--sun); font-variant-numeric: tabular-nums; }
+.fit { color: var(--muted); }
+.fit b { color: var(--ink); }
+.prog { transition: opacity .2s ease, outline-color .2s ease; outline: 3px solid transparent; outline-offset: 3px; }
+.prog.match { outline-color: var(--sun); }
+.programs.picking .prog:not(.match) { opacity: .55; }
+
+.faq-tabs { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 16px; }
+.faq-tab { font: inherit; font-size: 0.92rem; padding: 6px 12px; border-radius: 3px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; }
+.faq-tab:hover { border-color: var(--ink); }
+.faq-tab[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .cn-tile, .prog, .slot { transition: none; } .cn-tile:hover { transform: none; } }
+</style>
+</head>
+<body>
+
+<div class="strip band">
+  <div class="inner">
+    <b>COHORT 3</b>
+    <span>Classes relaunch Sunday, November 29 · 4–6 PM Mountain · live on Zoom · free</span>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSduNY-VZFL6f6ZsAHeRQ4LFdbQPTM2TH-kKA3DKw26mgYKhSA/viewform" target="_blank" rel="noopener">Save a spot →</a>
+  </div>
+</div>
+
+<nav class="nav band" aria-label="Main">
+  <div class="inner">
+    <a class="brand" href="#top">
+      <canvas class="brand-mark" id="mark" width="10" height="10" aria-hidden="true"></canvas>
+      Kids Code <span>&amp;</span> Play
+    </a>
+    <div class="nav-links">
+      <a href="#model">How we teach</a>
+      <a href="#conundrums">Conundrums</a>
+      <a href="#programs">Programs</a>
+      <a href="#faq">FAQ</a>
+      <a href="#volunteer">Volunteer</a>
+      <a href="support.html">Support</a>
+      <button class="theme-btn" id="theme-btn" type="button">Night</button>
+      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSduNY-VZFL6f6ZsAHeRQ4LFdbQPTM2TH-kKA3DKw26mgYKhSA/viewform" target="_blank" rel="noopener">Register</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="band">
+    <div class="inner">
+      <p class="eyebrow">Free coding school · Calgary, Alberta · Since 2021</p>
+      <h1>Sparking the minds that will <span class="px">change the world.</span></h1>
+      <p class="tagline">Build it. <span>Break it.</span> Fix it.</p>
+      <p class="hero-sub">Live Sunday classes where kids ages 5–15 argue through a Conundrum, learn real Python, build projects with a team, and end with play. Always free for families.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSduNY-VZFL6f6ZsAHeRQ4LFdbQPTM2TH-kKA3DKw26mgYKhSA/viewform" target="_blank" rel="noopener">Register for Cohort 3 →</a>
+        <a class="btn btn-ghost" href="#debug">Try a 30-second coding challenge</a>
+      </div>
+      <div class="hero-facts">
+        <span>Ages 5–15</span><span>Sundays 4–6 PM MT</span><span>Online, Zoom</span><span>$0 for families</span>
+      </div>
+      <div class="countdown" id="countdown">
+        <span class="cd-label" id="cd-label">Cohort 3 starts in</span>
+        <span class="cd-num" id="cd-num">--d --:--:--</span>
+      </div>
+    </div>
+  </div>
+  <canvas class="range" id="range" aria-hidden="true"></canvas>
+  <canvas class="snow" id="snow" aria-hidden="true"></canvas>
+  <p class="snow-hint" id="snow-hint">* tap the sky for a flurry</p>
+</header>
+
+<main>
+  <section class="section band bbf-band" id="debug">
+    <div class="inner bbf">
+      <div class="bbf-copy">
+        <p class="eyebrow">Try it yourself</p>
+        <h2 style="margin-top:14px">Build it. <span class="brk">Break it.</span> Fix it.</h2>
+        <p class="lede" style="margin-top:16px">Real coders break things all the time. What matters is knowing how to fix them. That's how every KCAP class works, and you can try it right here.</p>
+        <ol class="bbf-steps" id="bbf-steps">
+          <li data-step="1" class="on"><span><b>Build it.</b> Press <i>Run</i> to see the program work.</span></li>
+          <li data-step="2"><span><b>Break it.</b> Press <i>Break it</i>, then run it again.</span></li>
+          <li data-step="3"><span><b>Fix it.</b> Read the error and pick the fix.</span></li>
+        </ol>
+      </div>
+      <div class="ide" aria-label="Coding challenge">
+        <div class="ide-bar"><span class="ide-dots" aria-hidden="true">● ● ●</span><span class="ide-file">pet_namer.py</span></div>
+        <pre class="ide-code" id="ide-code" aria-label="Python code"></pre>
+        <div class="ide-btns">
+          <button type="button" class="ide-btn run" id="bbf-run">▶ Run</button>
+          <button type="button" class="ide-btn brk" id="bbf-break" disabled>Break it</button>
+        </div>
+        <div class="ide-out" id="bbf-out" role="status" aria-live="polite"><span class="dim">Output appears here. Press Run.</span></div>
+        <div class="ide-fix" id="bbf-fix" hidden>
+          <p class="ide-q">Which fix makes it work?</p>
+          <div class="ide-opts" id="bbf-opts"></div>
+        </div>
+        <div class="ide-win" id="bbf-win" hidden>
+          <p><b>You just debugged your first program.</b> That's exactly what KCAP kids do every Sunday.</p>
+          <div class="ide-win-btns">
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSduNY-VZFL6f6ZsAHeRQ4LFdbQPTM2TH-kKA3DKw26mgYKhSA/viewform" target="_blank" rel="noopener">Register for Cohort 3 →</a>
+            <button type="button" class="ide-btn brk" id="bbf-again">Break it again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="mission">
+    <div class="inner mission">
+      <div class="head" style="margin-bottom:0">
+        <p class="eyebrow">Our mission</p>
+        <h2>Every kid should get to build with technology, whatever their family earns or where they started.</h2>
+        <p class="lede">We started during the pandemic for immigrant and low-income families in Calgary. Two cohorts later, we're relaunching with a sharper program and opening to families across Canada, starting with Alberta.</p>
+        <div class="stats">
+          <div class="stat"><strong>80</strong><span>kids registered from 56 families</span></div>
+          <div class="stat"><strong>~60</strong><span>live sessions taught over two years</span></div>
+          <div class="stat"><strong>$0</strong><span>cost to families, always</span></div>
+        </div>
+      </div>
+      <dl class="pillars">
+        <div class="pillar"><dt>Kids</dt><dd><b>Curious, from any background.</b> No experience needed. A laptop and an internet connection are enough.</dd></div>
+        <div class="pillar"><dt>Mentors</dt><dd><b>Working software engineers.</b> Classes are taught by people who build software for a living.</dd></div>
+        <div class="pillar"><dt>Program</dt><dd><b>Rebuilt every cohort.</b> We keep what worked, drop what didn't, and pick new projects each time.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section band model-band" id="model">
+    <div class="inner">
+      <div class="head">
+        <p class="eyebrow">How we teach</p>
+        <h2>Think. Code. Build. Play.</h2>
+        <p class="lede">Every class moves through the same four stages. Kids reason before they type, learn one real concept at a time, then use it with a team on something that works.</p>
+      </div>
+      <div class="model">
+        <div class="stage">
+          <div class="stage-word">Think</div>
+          <h3>Conundrums</h3>
+          <p>A short story with no right answer. Kids pick a side and defend it out loud.</p>
+          <span class="tool">reasoning · speaking</span>
+        </div>
+        <div class="stage">
+          <div class="stage-word">Code</div>
+          <h3>One concept + 100 Days of Python</h3>
+          <p>A short lesson on one idea, like functions, APIs or how YouTube works behind the scenes, then kids keep practising on Replit at home, at their own pace.</p>
+          <span class="tool">replit.com · python</span>
+        </div>
+        <div class="stage">
+          <div class="stage-word">Build</div>
+          <h3>Team projects</h3>
+          <p>Every week, groups of 5–6 build games and real-life apps in breakout rooms, with a captain, a driver and navigators, and an adult mentor nearby.</p>
+          <span class="tool">teamwork · leadership</span>
+        </div>
+        <div class="stage">
+          <div class="stage-word">Play</div>
+          <h3>The play in our name</h3>
+          <p>Every class ends with games, often ones classmates built. It's why kids come back next Sunday.</p>
+          <span class="tool">community · fun</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="sunday">
+    <div class="inner sunday">
+      <div>
+        <p class="eyebrow">A KCAP Sunday</p>
+        <h2 style="margin-top:14px">Two hours, six steps, every skill named.</h2>
+        <p class="note">Every third class, the concept slot becomes a <b>system design</b> or <b>money basics</b> session. 100 Days of Python happens at home, and we check each kid's progress on Sundays. We aim to keep every kid at about 80–85% success: hard enough to learn, not so hard they give up.</p>
+        <p class="live-note" id="live-note">Next class: Sunday, 4:00 PM Mountain.</p>
+      </div>
+      <ol class="schedule">
+        <li class="slot"><time>4:00</time><div><h3>Check-in</h3><p>Say hi, settle in, see who's here.</p></div><span class="skill gold">Community</span></li>
+        <li class="slot"><time>4:05</time><div><h3>Conundrum</h3><p>Watch a short video, pick a team in the chat, two or three kids defend their choice.</p></div><span class="skill">Speaking</span></li>
+        <li class="slot"><time>4:20</time><div><h3>Concept</h3><p>This week's idea, explained with real-world examples. Every third week: system design or money basics.</p></div><span class="skill pine">Reasoning</span></li>
+        <li class="slot"><time>4:45</time><div><h3>Replit check-in</h3><p>Where is everyone in 100 Days of Python? Quick help for anyone who's stuck.</p></div><span class="skill pine">Grit</span></li>
+        <li class="slot"><time>4:55</time><div><h3>Team projects</h3><p>Breakout rooms of 5–6, each with an adult mentor. Drivers rotate so everyone codes.</p></div><span class="skill sun">Teamwork</span></li>
+        <li class="slot"><time>5:40</time><div><h3>Show &amp; share</h3><p>Each group demos and explains how it works. Who helped a teammate today?</p></div><span class="skill sun">Presenting</span></li>
+        <li class="slot"><time>5:50</time><div><h3>Play</h3><p>Games, quizzes and classmates' creations. A different kid picks each week.</p></div><span class="skill gold">Fun</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section band conundrum-band" id="conundrums">
+    <div class="inner conundrum">
+      <div>
+        <p class="eyebrow">Conundrums</p>
+        <h2 style="margin-top:14px">Every class starts with a question that has no right answer.</h2>
+        <p class="lede" style="margin-top:16px">Before anyone writes code, kids practise thinking out loud: taking a position, listening to the other side, and changing their mind when the argument is better.</p>
+        <ul class="why">
+          <li>Builds the confidence to speak up in a group</li>
+          <li>Teaches that good ideas need good reasons</li>
+          <li>Often turns into the logic kids code that same day</li>
+        </ul>
+      </div>
+      <div class="cn-card">
+        <p class="eyebrow">This week's Conundrum</p>
+        <h3>The Pumpkin Conundrum</h3>
+        <p>Four farms secretly engineer super-fast pumpkins for a kids' Halloween race. The pumpkins smash through the town. Nobody is hurt, but the damage is real. Beyond paying for repairs, what should happen to the farms?</p>
+        <div class="teams" role="group" aria-label="Pick your team">
+          <button class="team-btn" id="t-fine" aria-pressed="false" data-team="Team Fine">Team Fine</button>
+          <button class="team-btn" id="t-ban" aria-pressed="false" data-team="Team 100-Year Ban">Team 100-Year Ban</button>
+          <button class="team-btn" id="t-invest" aria-pressed="false" data-team="Team Community Investment">Team Community Investment</button>
+          <button class="team-btn" id="t-charges" aria-pressed="false" data-team="Team Criminal Charges">Team Criminal Charges</button>
+          <button class="team-btn" id="t-none" aria-pressed="false" data-team="Team No Extra Penalty">Team No Extra Penalty</button>
+        </div>
+        <p class="verdict" id="verdict" aria-live="polite">Which team are you?</p>
+        <a class="btn btn-ghost" href="https://www.youtube.com/watch?v=sjC0pOhFvCw" target="_blank" rel="noopener">Watch the video ↗</a>
+        <p class="credit">Conundrums are created by <a href="https://www.youtube.com/c/astranovaschool" target="_blank" rel="noopener">Astra Nova School</a> and shared freely with classrooms.</p>
+      </div>
+      <div class="more-cn">
+        <p class="eyebrow">More Conundrums to try at home</p>
+        <div class="cn-tiles">
+          <a class="cn-tile sky" href="https://www.youtube.com/watch?v=Iw5NFiJff0Q" target="_blank" rel="noopener"><span class="cn-px">?</span><b>The School Conundrum</b><span>Watch ↗</span></a>
+          <a class="cn-tile pine" href="https://www.youtube.com/watch?v=DKJdpOAWxP0" target="_blank" rel="noopener"><span class="cn-px">?</span><b>The Robot Conundrum</b><span>Watch ↗</span></a>
+          <a class="cn-tile sun" href="https://www.youtube.com/watch?v=Me0L567tTSE" target="_blank" rel="noopener"><span class="cn-px">?</span><b>The Mint Conundrum</b><span>Watch ↗</span></a>
+          <a class="cn-tile gold" href="https://www.youtube.com/watch?v=YXMchZeXnXw" target="_blank" rel="noopener"><span class="cn-px">?</span><b>The Water Conundrum</b><span>Watch ↗</span></a>
+          <a class="cn-tile sky" href="https://www.youtube.com/watch?v=5RwD6HJyN8Y" target="_blank" rel="noopener"><span class="cn-px">?</span><b>The Halloween Video Game Conundrum</b><span>Watch ↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="programs">
+    <div class="inner">
+      <div class="head">
+        <p class="eyebrow">Programs</p>
+        <h2>One class running now. More on the way.</h2>
+      </div>
+      <div class="picker">
+        <label for="age">How old is your child?</label>
+        <div class="picker-row">
+          <input type="range" id="age" min="5" max="25" value="11">
+          <output id="age-out" for="age">11</output>
+        </div>
+        <p class="fit" id="age-fit" aria-live="polite"></p>
+      </div>
+      <div class="programs">
+        <article class="prog main">
+          <span class="status open">Open · Cohort 3</span>
+          <h3>Tech Innovators</h3>
+          <span class="ages">AGES 5–15 · SUNDAYS 4–6 PM MT · ZOOM</span>
+          <p>Our core program. Kids are grouped by skill, not age, so a confident 11-year-old and a new 14-year-old both get the right challenge.</p>
+          <ul>
+            <li>Python through Replit's 100 Days of Python</li>
+            <li>Functions, APIs, data and AI basics</li>
+            <li><b>New:</b> system design, or how real apps like YouTube and Roblox are built</li>
+            <li><b>New:</b> money basics, like budgeting and saving, built as Python projects</li>
+            <li>System design and money basics every third class</li>
+            <li>Team-built games and real-life apps</li>
+          </ul>
+          <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSduNY-VZFL6f6ZsAHeRQ4LFdbQPTM2TH-kKA3DKw26mgYKhSA/viewform" target="_blank" rel="noopener">Register →</a>
+        </article>
+        <article class="prog">
+          <span class="status soon">Launching 2027</span>
+          <h3>Youth Entrepreneurship Futures</h3>
+          <span class="ages">AGES 13–25 · AI-FOCUSED</span>
+          <p>Our AI program. Young people learn to start and run a real business with Claude as their co-founder, and come out as Claude experts with skills employers and clients pay for.</p>
+          <ul>
+            <li>Use Claude to research an idea, plan, write, build and market</li>
+            <li>Build working products and tools with AI</li>
+            <li>Learn the money side: pricing, costs, first customers</li>
+            <li>Pitch to the community and real investors</li>
+          </ul>
+          <p>Growth happens in milestones: first real user, first ten users, first feedback acted on, first pitch.</p>
+          <p class="fine-print">Claude is made by Anthropic. Kids Code and Play is independent and not affiliated with Anthropic.</p>
+          <div class="copyline"><span>Join the interest list:</span><code id="email1">info@kidscodeandplay.org</code><button class="copy" data-copy="email1">Copy</button></div>
+        </article>
+        <article class="prog">
+          <span class="status paused">Returning soon</span>
+          <h3>Digital Explorers</h3>
+          <span class="ages">AGES 5–7</span>
+          <p>Block coding, logic puzzles and interactive stories for our youngest coders. The full track returns as we grow the team.</p>
+          <p>Until then, kids 5–9 join the Sunday class for the first 30 minutes (the Conundrum and the new concept) and can head off whenever they're ready.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band join-band" id="join">
+    <div class="inner">
+      <div class="head">
+        <p class="eyebrow">Join Cohort 3</p>
+        <h2>Three steps, no fees, no catch.</h2>
+        <p class="lede">Cohort 3 is capped at 30 students so every group gets real attention. We'll call these our founding families.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="step-n">1</span><h3>Register</h3><p>Fill in the short form for each child. It takes about five minutes.</p></div>
+        <div class="step"><span class="step-n">2</span><h3>We confirm</h3><p>We'll email to confirm your child's spot, or tell you where you are on the waitlist.</p></div>
+        <div class="step"><span class="step-n">3</span><h3>Get your class link</h3><p>Confirmed families receive the private Zoom link and a calendar invite. We never post it publicly.</p></div>
+      </div>
+      <div class="next">
+        <h3>What happens next</h3>
+        <ol>
+          <li><b>NOW</b><span>Registration open</span></li>
+          <li><b>NOV 23–26</b><span>Spots confirmed by email</span></li>
+          <li><b>NOV 27</b><span>Class links sent</span></li>
+          <li><b>NOV 29</b><span>First class, 4 PM MT</span></li>
+        </ol>
+      </div>
+      <p style="margin-top:28px"><a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSduNY-VZFL6f6ZsAHeRQ4LFdbQPTM2TH-kKA3DKw26mgYKhSA/viewform" target="_blank" rel="noopener">Start registration →</a></p>
+    </div>
+  </section>
+
+  <section class="section band model-band" id="story">
+    <div class="inner">
+      <div class="head">
+        <p class="eyebrow">Our story</p>
+        <h2>Started in a pandemic. Built in Calgary.</h2>
+      </div>
+      <ol class="story">
+        <li><time>2021</time><h3>The first class</h3><p>Started on Zoom during the pandemic and registered as an Alberta non-profit that October.</p></li>
+        <li><time>Cohort 1</time><h3>A real curriculum</h3><p>Three levels, a weekly class flow, and the first Conundrums.</p></li>
+        <li><time>Cohort 2</time><h3>Real projects</h3><p>Students worked through 100 Days of Python and shipped their own apps and games.</p></li>
+        <li><time>Nov 2026</time><h3>Cohort 3 relaunch</h3><p>Think, Code, Build, Play. Team projects. Opening to families across Canada.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section band" id="voices">
+    <div class="inner">
+      <div class="head">
+        <p class="eyebrow">Families and students</p>
+        <h2>In their words.</h2>
+      </div>
+      <div class="voices">
+        <figure class="voice"><blockquote>Our instructor makes learning easy. He takes his time to break down concepts to the level where we understand. He is patient with us and challenges us daily.</blockquote><figcaption>MICHELLE · STUDENT</figcaption></figure>
+        <figure class="voice"><blockquote>The class has given me the confidence to work through the Replit 100 Days of Python. I also love that our tutor relates with us at our level and encourages us to dream big.</blockquote><figcaption>CHISOM · STUDENT</figcaption></figure>
+        <figure class="voice"><blockquote>I was filled with pride watching my daughter explain concepts like algorithms using everyday real-world examples. The class has really made a difference.</blockquote><figcaption>NKECHI · PARENT</figcaption></figure>
+      </div>
+      <div class="team" id="team">
+        <div class="person founder">
+          <div>
+            <span class="role">FOUNDER · PRESIDENT &amp; EXECUTIVE DIRECTOR</span>
+            <h3>Prince Egbukwu</h3>
+          </div>
+          <p>A software engineer with over a decade of experience. Prince designed the curriculum, teaches every class, and has funded the program himself since 2021.</p>
+          <p class="founder-cta">Volunteer mentors join him each cohort. <a href="#volunteer">Become one →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band model-band" id="faq">
+    <div class="inner faq">
+      <div>
+        <p class="eyebrow">FAQ</p>
+        <h2 style="margin-top:14px">Questions parents ask us.</h2>
+        <p class="lede" style="margin-top:16px;font-size:1.05rem">Something not here? Email <span style="user-select:all;color:var(--ink)">info@kidscodeandplay.org</span>.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-tabs" role="group" aria-label="Filter questions">
+          <button type="button" class="faq-tab" id="tab-all" aria-pressed="true" data-group="all">All</button>
+          <button type="button" class="faq-tab" id="tab-basics" aria-pressed="false" data-group="The basics">Basics</button>
+          <button type="button" class="faq-tab" id="tab-setup" aria-pressed="false" data-group="Schedule and setup">Schedule &amp; setup</button>
+          <button type="button" class="faq-tab" id="tab-safety" aria-pressed="false" data-group="Safety and privacy">Safety</button>
+        </div>
+        <p class="faq-group">The basics</p>
+        <details><summary>Is it really free?</summary><div><p>Yes. There are no fees, no materials to buy and no hidden costs. The program is funded by donations, grants and our founders.</p></div></details>
+        <details><summary>Who can join?</summary><div><p>Kids ages 5–15. Younger coders (5–9) join the first 30 minutes of class, the Conundrum and the new concept, and are free to leave after that or stay longer. We were founded for immigrant and low-income families and still prioritise them, but every family is welcome. We're starting in Calgary and Alberta and opening across Canada.</p></div></details>
+        <details><summary>Does my child need coding experience?</summary><div><p>No. Groups are organised by skill, so beginners start at the beginning and experienced kids get harder work.</p></div></details>
+        <p class="faq-group">Schedule and setup</p>
+        <details><summary>When are classes?</summary><div><p>Every Sunday, 4:00–6:00 PM Mountain Time, starting November 29, 2026.</p></div></details>
+        <details><summary>What device does my child need?</summary><div><p>A laptop or desktop computer (Windows or Mac) with a stable internet connection. Python is hard to learn on a phone or tablet. If you don't have a computer, tell us on the form. We're working on a device program.</p></div></details>
+        <details><summary>Is there homework?</summary><div><p>A little. Kids work through 100 Days of Python on Replit at home, at their own pace, and we check everyone's progress in class each Sunday.</p></div></details>
+        <p class="faq-group">Safety and privacy</p>
+        <details><summary>How do you keep classes safe?</summary><div><p>The Zoom link goes only to confirmed families and is never posted publicly. The waiting room is on, and we check names against our registration list before admitting anyone.</p></div></details>
+        <details><summary>What do you do with my child's information?</summary><div><p>We collect only what we need to run the class and contact you. It's stored privately, shared only with our team, and never sold or published.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band support-band" id="support">
+    <div class="inner">
+      <div class="head">
+        <p class="eyebrow">Support</p>
+        <h2>Help us reach 10,000 kids.</h2>
+        <p class="lede">We're growing from one founder-taught cohort to a national program with paid instructors in every province. <a href="support.html" style="color:var(--sun);font-weight:700">See the plan →</a></p>
+      </div>
+      <div class="support">
+        <div class="sup lead">
+          <h3>Donate</h3>
+          <p>Help fund Cohort 3: we're raising $5,000 by January 31. Gifts pay instructors, put laptops in kids' hands, and open new cohorts.</p>
+          <div class="sup-ctas"><a class="btn btn-primary" href="https://www.zeffy.com/en-CA/donation-form/keep-coding-free-for-kids-fund-cohort--3" target="_blank" rel="noopener">Donate →</a><a class="btn btn-ghost" href="https://www.zeffy.com/en-CA/donation-form/support-kids-code-and-play" target="_blank" rel="noopener">Give monthly</a></div>
+        </div>
+        <div class="sup">
+          <h3>Teach with us</h3>
+          <p>Software engineers, educators and parents: lead a breakout group, give a 10-minute guest talk, or help run a class. One Sunday a month makes a difference.</p>
+          <a class="btn btn-ghost" href="#volunteer" style="margin-top:auto;align-self:flex-start">Volunteer form →</a>
+        </div>
+        <div class="sup">
+          <h3>Partner or sponsor</h3>
+          <p>Governments, foundations, companies and schools: fund a stage of our growth, sponsor a cohort, or donate equipment.</p>
+          <a class="btn btn-ghost" href="support.html#partners" style="margin-top:auto;align-self:flex-start">For funders →</a>
+        </div>
+      </div>
+      <p class="reg">Kids Code and Play Club · Alberta non-profit · Corporate Access No. 5123862624 · BN 767188600</p>
+    </div>
+  </section>
+
+  <section class="section band" id="volunteer">
+    <div class="inner vol">
+      <div>
+        <p class="eyebrow">Volunteer</p>
+        <h2 style="margin-top:14px">Give a Sunday. Spark a mind.</h2>
+        <p class="lede" style="margin-top:16px">Every new cohort needs more grown-ups in the room. You don't have to be an expert, just reliable, kind and curious.</p>
+        <ul class="why vol-why">
+          <li><b>Breakout mentor.</b> Guide a small team through their project.</li>
+          <li><b>Parent facilitator.</b> Help run the Zoom room, admit kids, keep groups on track.</li>
+          <li><b>Guest speaker.</b> Ten minutes on what you build and how you got there.</li>
+          <li><b>Behind the scenes.</b> Social media, design, grant writing, outreach.</li>
+        </ul>
+        <p class="vol-note">Because we work with children, volunteers who join a live class are asked to provide a recent police information check with vulnerable sector check before their first session.</p>
+      </div>
+      <form class="vol-form" name="volunteer" id="vol-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="volunteer">
+        <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div class="row2">
+          <label>Full name<input type="text" name="name" autocomplete="name" required></label>
+          <label>Email<input type="email" name="email" autocomplete="email" required></label>
+        </div>
+        <div class="row2">
+          <label><span>Phone <span class="opt">(optional)</span></span><input type="tel" name="phone" autocomplete="tel"></label>
+          <label>City<input type="text" name="city" autocomplete="address-level2" placeholder="Calgary" required></label>
+        </div>
+        <fieldset>
+          <legend>How would you like to help?</legend>
+          <div class="checks">
+            <label class="check"><input type="checkbox" name="roles" value="Breakout mentor"> Breakout mentor</label>
+            <label class="check"><input type="checkbox" name="roles" value="Parent facilitator"> Parent facilitator</label>
+            <label class="check"><input type="checkbox" name="roles" value="Guest speaker"> Guest speaker</label>
+            <label class="check"><input type="checkbox" name="roles" value="Behind the scenes"> Behind the scenes</label>
+          </div>
+        </fieldset>
+        <div class="row2">
+          <label>I'm a…
+            <select name="background" required>
+              <option value="">Choose one</option>
+              <option>Software engineer or tech professional</option>
+              <option>Teacher or educator</option>
+              <option>Parent of a KCAP student</option>
+              <option>Student (university or college)</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>How often can you join on Sundays (4–6 PM MT)?
+            <select name="availability" required>
+              <option value="">Choose one</option>
+              <option>Every week</option>
+              <option>Twice a month</option>
+              <option>Once a month</option>
+              <option>Occasionally / behind the scenes only</option>
+            </select>
+          </label>
+        </div>
+        <label><span>Tell us a bit about yourself <span class="opt">(skills, experience with kids, LinkedIn)</span></span><textarea name="about" rows="4"></textarea></label>
+        <label class="check"><input type="checkbox" name="vsc" value="Yes" required> I'm willing to provide a police information check with vulnerable sector check if I join a live class.</label>
+        <button class="btn btn-primary" type="submit">Send my application →</button>
+        <p class="vol-status" id="vol-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer band">
+  <div class="inner">
+    <div>
+      <a class="brand" href="#top">Kids Code <span>&amp;</span> Play</a>
+      <p style="margin-top:12px;max-width:40ch;font-size:0.95rem">A registered Alberta non-profit offering free, live coding classes for kids. Sparking the minds that will change the world.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#model">How we teach</a></li>
+        <li><a href="#conundrums">Conundrums</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="support.html">Support us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/kidscodeandplay" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@kidscodeandplay" target="_blank" rel="noopener">TikTok</a></li>
+        <li><a href="https://www.linkedin.com/company/kidscodeandplay" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li>info@kidscodeandplay.org</li>
+      </ul>
+    </div>
+    <div class="fine"><span>© 2026 Kids Code and Play Club · Calgary, AB</span><span>// build it · break it · fix it</span></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  function css(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+
+  // Tiny pixel mountain logo
+  function drawMark() {
+    var c = document.getElementById('mark'); if (!c) return;
+    var x = c.getContext('2d'); x.clearRect(0, 0, 10, 10);
+    x.fillStyle = css('--sun'); x.fillRect(0, 0, 10, 10);
+    var peak = css('--ink'), snow = css('--paper');
+    var rows = [[4,6],[3,7],[2,8],[1,9],[0,10]];
+    rows.forEach(function (r, i) { x.fillStyle = peak; x.fillRect(r[0], 4 + i, r[1] - r[0], 1); });
+    x.fillStyle = snow; x.fillRect(4, 4, 2, 1);
+    x.fillStyle = css('--gold'); x.fillRect(1, 1, 2, 2);
+  }
+
+  // Pixel Rockies under a chinook arch
+  function rng(seed) { return function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+  function ridge(cols, base, amp, peaks, rand) {
+    var h = new Array(cols).fill(base);
+    for (var p = 0; p < peaks; p++) {
+      var cx = Math.floor(rand() * cols), height = amp * (0.55 + rand() * 0.45), w = 6 + Math.floor(rand() * 10);
+      for (var i = 0; i < cols; i++) {
+        var d = Math.abs(i - cx), v = base + Math.max(0, height - d * (height / w));
+        if (v > h[i]) h[i] = v;
+      }
+    }
+    return h.map(Math.round);
+  }
+  function drawRange() {
+    var c = document.getElementById('range'); if (!c) return;
+    var px = window.innerWidth < 600 ? 6 : 8;
+    var w = c.clientWidth, hgt = c.clientHeight;
+    var cols = Math.ceil(w / px), rows = Math.ceil(hgt / px);
+    c.width = cols; c.height = rows;
+    var x = c.getContext('2d'); x.clearRect(0, 0, cols, rows);
+    var rand = rng(2021);
+
+    // chinook arch: a clean band of gold sky under a flat cloud deck
+    x.fillStyle = css('--cloud');
+    for (var i = 0; i < cols; i++) {
+      var t = i / cols, arch = Math.round(rows * 0.12 + Math.sin(t * Math.PI) * rows * 0.1);
+      x.fillRect(i, 0, 1, Math.max(1, arch - 3));
+    }
+    x.fillStyle = css('--gold'); x.globalAlpha = 0.55;
+    for (i = 0; i < cols; i++) {
+      var t2 = i / cols, a2 = Math.round(rows * 0.12 + Math.sin(t2 * Math.PI) * rows * 0.1);
+      x.fillRect(i, a2 - 3, 1, 2);
+    }
+    x.globalAlpha = 1;
+
+    var back = ridge(cols, rows * 0.32, rows * 0.42, Math.max(6, cols / 14), rand);
+    var front = ridge(cols, rows * 0.18, rows * 0.36, Math.max(5, cols / 18), rand);
+    var backC = css('--peak-back'), frontC = css('--peak-front'), snow = css('--snow'), prairie = css('--prairie');
+    var prairieH = Math.max(3, Math.round(rows * 0.12));
+
+    for (i = 0; i < cols; i++) {
+      x.fillStyle = backC; x.fillRect(i, rows - back[i], 1, back[i]);
+      if (back[i] > rows * 0.6) { x.fillStyle = snow; x.globalAlpha = 0.8; x.fillRect(i, rows - back[i], 1, Math.round((back[i] - rows * 0.6) * 0.6) + 1); x.globalAlpha = 1; }
+    }
+    for (i = 0; i < cols; i++) {
+      x.fillStyle = frontC; x.fillRect(i, rows - front[i] - prairieH + 2, 1, front[i] + prairieH);
+      if (front[i] > rows * 0.42) { x.fillStyle = snow; x.fillRect(i, rows - front[i] - prairieH + 2, 1, Math.round((front[i] - rows * 0.42) * 0.5) + 1); }
+    }
+    x.fillStyle = prairie; x.fillRect(0, rows - prairieH, cols, prairieH);
+    var tops = [];
+    for (i = 0; i < cols; i++) tops.push(Math.max(back[i], front[i] + prairieH - 2));
+    window.kcapRidge = { cols: cols, rows: rows, tops: tops, el: c };
+    x.fillStyle = css('--bg'); x.globalAlpha = 0.35;
+    for (i = 0; i < cols; i += 3) x.fillRect(i, rows - prairieH + (i % 2), 1, 1);
+    x.globalAlpha = 1;
+  }
+
+  function drawAll() { drawMark(); drawRange(); }
+  drawAll();
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(drawRange, 120); });
+  if (window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    if (mq.addEventListener) mq.addEventListener('change', drawAll);
+  }
+  new MutationObserver(drawAll).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawRange);
+
+  // Conundrum team picker
+  var lines = {
+    'Team Fine': 'Team Fine. Who gets the money, and is that fair to the farms?',
+    'Team 100-Year Ban': 'Team 100-Year Ban. Is 100 years too long for people who weren’t even there?',
+    'Team Community Investment': 'Team Community Investment. Does building something good make up for the harm?',
+    'Team Criminal Charges': 'Team Criminal Charges. Nobody was hurt, so is jail too much?',
+    'Team No Extra Penalty': 'Team No Extra Penalty. Would the farms just do it again next year?'
+  };
+  var btns = document.querySelectorAll('.team-btn'), verdict = document.getElementById('verdict');
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var on = b.getAttribute('aria-pressed') !== 'true';
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      var picked = Array.prototype.filter.call(btns, function (x) { return x.getAttribute('aria-pressed') === 'true'; });
+      if (!picked.length) { verdict.textContent = 'Which team are you?'; return; }
+      var last = on ? b : picked[picked.length - 1];
+      verdict.textContent = 'You’re ' + lines[last.dataset.team] + ' Defend it in 30 seconds.';
+    });
+  });
+
+  // Copy buttons
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var el = document.getElementById(btn.dataset.copy), text = el.textContent;
+      function done() { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); }
+      function fallback() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected'; }
+      try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+    });
+  });
+  var root = document.documentElement;
+  function isDark() {
+    var t = root.getAttribute('data-theme');
+    if (t) return t === 'dark';
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+
+  // Day / Night toggle (remembers the choice when the browser allows it)
+  var themeBtn = document.getElementById('theme-btn');
+  try { var saved = localStorage.getItem('kcap-theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  function syncThemeBtn() {
+    var dark = isDark();
+    themeBtn.textContent = dark ? 'Day' : 'Night';
+    themeBtn.setAttribute('aria-label', dark ? 'Switch to day mode' : 'Switch to night mode');
+  }
+  themeBtn.addEventListener('click', function () {
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('kcap-theme', next); } catch (e) {}
+    syncThemeBtn();
+  });
+  syncThemeBtn();
+  new MutationObserver(syncThemeBtn).observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+  if (window.matchMedia) {
+    var mq2 = window.matchMedia('(prefers-color-scheme: dark)');
+    if (mq2.addEventListener) mq2.addEventListener('change', syncThemeBtn);
+  }
+
+  // Calgary time helpers
+  var fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'America/Edmonton', weekday: 'short', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: false });
+  var DAYS = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+  function calgary() {
+    var o = {};
+    fmt.formatToParts(new Date()).forEach(function (p) { o[p.type] = p.value; });
+    return { wd: DAYS[o.weekday], h: (+o.hour) % 24, m: +o.minute, s: +o.second };
+  }
+  var START = 16 * 60, END = 18 * 60;
+  var FIRST_CLASS = Date.UTC(2026, 10, 29, 23, 0, 0); // Sun Nov 29, 4:00 PM MST
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+
+  // Countdown
+  var cd = document.getElementById('countdown'), cdLabel = document.getElementById('cd-label'), cdNum = document.getElementById('cd-num');
+  var liveNote = document.getElementById('live-note');
+  var slots = Array.prototype.slice.call(document.querySelectorAll('.slot'));
+  var slotMins = slots.map(function (s) { var t = s.querySelector('time').textContent.split(':'); return (+t[0] + 12) * 60 + (+t[1]); });
+
+  function tick() {
+    var now = Date.now(), c = calgary(), mins = c.h * 60 + c.m;
+    var liveNow = now >= FIRST_CLASS && c.wd === 0 && mins >= START && mins < END;
+    var secs;
+    if (now < FIRST_CLASS) {
+      secs = Math.floor((FIRST_CLASS - now) / 1000);
+      cdLabel.textContent = 'Cohort 3 starts in';
+    } else if (liveNow) {
+      secs = null;
+      cdLabel.textContent = 'Class is on now';
+    } else {
+      var d = (7 - c.wd) % 7;
+      if (d === 0 && mins >= END) d = 7;
+      secs = d * 86400 + START * 60 - (c.h * 3600 + c.m * 60 + c.s);
+      cdLabel.textContent = 'Next class in';
+    }
+    cd.classList.toggle('live', liveNow);
+    if (secs === null) cdNum.textContent = 'LIVE';
+    else {
+      var dd = Math.floor(secs / 86400), hh = Math.floor(secs % 86400 / 3600), mm = Math.floor(secs % 3600 / 60), ss = secs % 60;
+      cdNum.textContent = dd + 'd ' + pad(hh) + ':' + pad(mm) + ':' + pad(ss);
+    }
+    var active = -1;
+    if (liveNow) slotMins.forEach(function (m, i) { var end = slotMins[i + 1] || END; if (mins >= m && mins < end) active = i; });
+    slots.forEach(function (s, i) { s.classList.toggle('now', i === active); });
+    liveNote.textContent = liveNow ? 'Class is on right now. The highlighted step is happening live.'
+      : (now < FIRST_CLASS ? 'First class: Sunday, November 29, 4:00 PM Mountain.' : 'Next class: Sunday, 4:00 PM Mountain.');
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Which program fits my child?
+  var age = document.getElementById('age'), ageOut = document.getElementById('age-out'), fit = document.getElementById('age-fit');
+  var progs = document.querySelectorAll('.prog'), grid = document.querySelector('.programs');
+  function fitFor(a) {
+    if (a <= 9) return [[0, 2], '<b>Tech Innovators</b>, for the first 30 minutes of each class (the Conundrum and the new concept), then free to head off. Register now for Cohort 3, starting November 29.'];
+    if (a <= 12) return [[0], '<b>Tech Innovators</b>. Register now for Cohort 3, starting November 29.'];
+    if (a <= 15) return [[0, 1], '<b>Tech Innovators</b> now, and <b>Youth Entrepreneurship Futures</b> when it launches in 2027.'];
+    return [[1], '<b>Youth Entrepreneurship Futures</b>, our AI program, launching in 2027. Join the interest list and you’ll hear first.'];
+  }
+  function updateAge() {
+    var a = +age.value, f = fitFor(a);
+    ageOut.textContent = a;
+    fit.innerHTML = f[1];
+    progs.forEach(function (p, i) { p.classList.toggle('match', f[0].indexOf(i) > -1); });
+  }
+  age.addEventListener('input', function () { grid.classList.add('picking'); updateAge(); });
+  updateAge();
+
+  // Volunteer form: submit to Netlify Forms without leaving the page
+  var vf = document.getElementById('vol-form'), vs = document.getElementById('vol-status');
+  if (vf) vf.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = vf.querySelector('button[type="submit"]');
+    btn.disabled = true; vs.className = 'vol-status'; vs.textContent = 'Sending…';
+    var body = new URLSearchParams(new FormData(vf)).toString();
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body })
+      .then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        vf.reset(); vs.className = 'vol-status ok';
+        vs.textContent = 'Thank you! We got your application and will be in touch by email.';
+      })
+      .catch(function () {
+        vs.className = 'vol-status err';
+        vs.textContent = 'Something went wrong. Please email info@kidscodeandplay.org instead.';
+      })
+      .then(function () { btn.disabled = false; });
+  });
+
+  // Pixel snow over the Rockies: drifts with the pointer, tap the sky for a flurry, settles on the peaks and melts
+  (function () {
+    var hero = document.querySelector('.hero'), cv = document.getElementById('snow'), hint = document.getElementById('snow-hint');
+    if (!hero || !cv || !cv.getContext) return;
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var ctx = cv.getContext('2d'), W = 0, H = 0, dpr = 1, flakes = [], settled = [], wind = 0, windTarget = 0, running = false, visible = true, last = 0;
+    var MAX = window.innerWidth < 600 ? 45 : 90;
+    function size() {
+      dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = hero.clientWidth; H = hero.clientHeight;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    function ground(x) {
+      var r = window.kcapRidge; if (!r) return H;
+      var el = r.el, top = el.offsetTop, cell = el.clientHeight / r.rows;
+      var col = Math.max(0, Math.min(r.cols - 1, Math.floor(x / (el.clientWidth / r.cols))));
+      return top + (r.rows - r.tops[col]) * cell;
+    }
+    function make(x, y, burst) {
+      var s = Math.random() < 0.25 ? 4 : 3;
+      return { x: x, y: y, s: s, vy: 0.7 + Math.random() * 0.8 + (s === 4 ? 0.25 : 0), vx: burst ? (Math.random() - 0.5) * 2.2 : 0, wob: Math.random() * 6.28 };
+    }
+    function spawn() { if (flakes.length < MAX) flakes.push(make(Math.random() * (W + 80) - 40, -6, false)); }
+    function color() { return getComputedStyle(document.documentElement).getPropertyValue('--snow').trim() || '#fff'; }
+    var snowC = color();
+    function frame(t) {
+      if (!running) return;
+      var dt = Math.min(3, (t - last) / 16.7 || 1); last = t;
+      wind += (windTarget - wind) * 0.03;
+      if (Math.random() < 0.6 * dt) spawn();
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = snowC;
+      for (var i = flakes.length - 1; i >= 0; i--) {
+        var f = flakes[i];
+        f.wob += 0.03 * dt;
+        f.vx *= 0.97;
+        f.x += (wind + f.vx + Math.sin(f.wob) * 0.25) * dt;
+        f.y += f.vy * dt;
+        var gx = Math.round(f.x), gy = ground(gx);
+        if (f.y >= gy - f.s) {
+          if (gy < H - 4 && settled.length < 260) settled.push({ x: Math.round(f.x / 3) * 3, y: Math.round(gy - f.s), s: f.s, life: 1 });
+          flakes.splice(i, 1); continue;
+        }
+        if (f.x < -50 || f.x > W + 50) { flakes.splice(i, 1); continue; }
+        ctx.globalAlpha = 0.9;
+        ctx.fillRect(Math.round(f.x), Math.round(f.y), f.s, f.s);
+      }
+      for (var j = settled.length - 1; j >= 0; j--) {
+        var p = settled[j];
+        p.life -= 0.0025 * dt;
+        if (p.life <= 0) { settled.splice(j, 1); continue; }
+        ctx.globalAlpha = Math.min(1, p.life * 1.5);
+        ctx.fillRect(p.x, p.y, p.s, p.s);
+      }
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(frame);
+    }
+    function start() { if (running || !visible || document.hidden) return; running = true; last = performance.now(); requestAnimationFrame(frame); }
+    function stop() { running = false; }
+    hero.addEventListener('pointermove', function (e) {
+      var r = hero.getBoundingClientRect();
+      windTarget = ((e.clientX - r.left) / r.width - 0.5) * 1.6;
+    });
+    hero.addEventListener('pointerleave', function () { windTarget = 0; });
+    hero.addEventListener('click', function (e) {
+      if (e.target.closest('a, button, input, label')) return;
+      var r = hero.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+      for (var k = 0; k < 28; k++) flakes.push(make(x + (Math.random() - 0.5) * 30, y + (Math.random() - 0.5) * 20, true));
+      if (hint) hint.classList.add('gone');
+    });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) { visible = en[0].isIntersecting; visible ? start() : stop(); }).observe(hero);
+    }
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+    var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { size(); settled = []; }, 150); });
+    new MutationObserver(function () { snowC = color(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    size(); start();
+  })();
+
+  // Build it. Break it. Fix it.
+  (function () {
+    var codeEl = document.getElementById('ide-code'); if (!codeEl) return;
+    var outEl = document.getElementById('bbf-out'), runB = document.getElementById('bbf-run'), brkB = document.getElementById('bbf-break');
+    var fixBox = document.getElementById('bbf-fix'), optsEl = document.getElementById('bbf-opts'), winBox = document.getElementById('bbf-win'), againB = document.getElementById('bbf-again');
+    var steps = document.querySelectorAll('#bbf-steps li');
+    var BASE = [
+      'import random',
+      '',
+      'adjectives = ["Sparkly", "Speedy", "Brave", "Fuzzy"]',
+      'animals = ["Dragon", "Penguin", "Llama", "Robot"]',
+      '',
+      'name = random.choice(adjectives) + " " + random.choice(animals)',
+      'print("Your pet\'s name is " + name + "!")'
+    ];
+    var BUGS = [
+      { line: 5, text: 'name = random.choice(adjectives) + " " + random.choice(animal)',
+        error: 'Traceback (most recent call last):\n  File "pet_namer.py", line 6\nNameError: name \'animal\' is not defined. Did you mean: \'animals\'?',
+        opts: [['Change <code>animal</code> to <code>animals</code>', true], ['Delete line 6', false], ['Add <code>"Cat"</code> to the animals list', false]],
+        hint: 'Look at the error again: Python can\'t find a name. Which word is spelled differently from the list?' },
+      { line: 3, text: 'animals = ["Dragon", "Penguin", "Llama", "Robot"',
+        error: '  File "pet_namer.py", line 4\n    animals = ["Dragon", "Penguin", "Llama", "Robot"\n              ^\nSyntaxError: \'[\' was never closed',
+        opts: [['Add <code>(</code> at the start of the list', false], ['Add <code>]</code> at the end of line 4', true], ['Remove the quotes around "Robot"', false]],
+        hint: 'The error says a bracket was opened but never closed. Every [ needs a matching ].' },
+      { line: 5, text: 'name = random.choise(adjectives) + " " + random.choice(animals)',
+        error: 'Traceback (most recent call last):\n  File "pet_namer.py", line 6\nAttributeError: module \'random\' has no attribute \'choise\'. Did you mean: \'choice\'?',
+        opts: [['Change <code>random</code> to <code>Random</code>', false], ['Fix the spelling: <code>choise</code> → <code>choice</code>', true], ['Move line 6 above line 1', false]],
+        hint: 'Python is picky about spelling. The error even suggests the right word.' }
+    ];
+    var state = 'build', bugIdx = -1, lines = BASE.slice(), mark = {};
+    function esc(t) { return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+    function hl(t) {
+      t = esc(t);
+      t = t.replace(/("[^"]*"?)/g, '<span class="s">$1</span>');
+      t = t.replace(/\b(import)\b/g, '<span class="k">$1</span>');
+      t = t.replace(/\b(print|choice|choise)\b(?=\()/g, '<span class="f">$1</span>');
+      return t || ' ';
+    }
+    function render() {
+      codeEl.innerHTML = lines.map(function (l, i) { return '<span class="ln' + (mark[i] ? ' ' + mark[i] : '') + '">' + hl(l) + '</span>'; }).join('');
+    }
+    function setStep(n) { steps.forEach(function (li, i) { li.classList.toggle('on', i === n - 1); li.classList.toggle('done', i < n - 1); }); }
+    function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+    function petName() { return pick(['Sparkly', 'Speedy', 'Brave', 'Fuzzy']) + ' ' + pick(['Dragon', 'Penguin', 'Llama', 'Robot']); }
+    function runOk(msg) { outEl.innerHTML = '<span class="ok">Your pet\'s name is ' + petName() + '!</span>' + (msg ? '\n<span class="dim">' + msg + '</span>' : ''); }
+
+    runB.addEventListener('click', function () {
+      if (state === 'build') { runOk('Run it again for a new name, or press Break it.'); brkB.disabled = false; }
+      else if (state === 'built') { runOk('Run it again, or press Break it.'); }
+      else if (state === 'broken') {
+        var b = BUGS[bugIdx]; mark = {}; mark[b.line] = 'err'; render();
+        outEl.innerHTML = '<span class="bad">' + esc(b.error) + '</span>';
+        setStep(3); state = 'fixing'; runB.disabled = true; brkB.disabled = true;
+        optsEl.innerHTML = '';
+        b.opts.slice().sort(function () { return Math.random() - 0.5; }).forEach(function (o) {
+          var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'ide-opt'; btn.innerHTML = o[0];
+          btn.addEventListener('click', function () { choose(o[1], btn); });
+          optsEl.appendChild(btn);
+        });
+        fixBox.hidden = false;
+      } else if (state === 'fixed') {
+        runOk(); winBox.hidden = false; runB.disabled = true; setStep(4);
+      }
+      if (state === 'build') state = 'built';
+    });
+    function breakIt() {
+      bugIdx = (bugIdx + 1) % BUGS.length;
+      var b = BUGS[bugIdx]; lines = BASE.slice(); lines[b.line] = b.text; mark = {}; mark[b.line] = 'changed'; render();
+      outEl.innerHTML = '<span class="dim">Something in the code just changed. Press Run to find out what.</span>';
+      state = 'broken'; setStep(2); brkB.disabled = true; runB.disabled = false; winBox.hidden = true; fixBox.hidden = true;
+    }
+    function choose(right, btn) {
+      if (!right) { btn.classList.add('wrong'); outEl.innerHTML = '<span class="bad">' + esc(BUGS[bugIdx].error) + '</span>\n\n<span class="dim">Not quite. ' + BUGS[bugIdx].hint + '</span>'; return; }
+      lines = BASE.slice(); mark = {}; mark[BUGS[bugIdx].line] = 'fixed'; render();
+      fixBox.hidden = true; state = 'fixed'; runB.disabled = false;
+      outEl.innerHTML = '<span class="ok">Nice fix.</span> <span class="dim">Press Run to check it works.</span>';
+    }
+    brkB.addEventListener('click', breakIt);
+    againB.addEventListener('click', function () { breakIt(); });
+    render();
+  })();
+
+  // FAQ filter
+  var current = '';
+  var faqKids = Array.prototype.slice.call(document.querySelectorAll('.faq-list > .faq-group, .faq-list > details'));
+  faqKids.forEach(function (el) { if (el.classList.contains('faq-group')) current = el.textContent.trim(); el.dataset.group = current; });
+  var tabs = document.querySelectorAll('.faq-tab');
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      tabs.forEach(function (x) { x.setAttribute('aria-pressed', x === t ? 'true' : 'false'); });
+      var g = t.dataset.group;
+      faqKids.forEach(function (el) { el.hidden = !(g === 'all' || el.dataset.group === g); });
+    });
+  });
+})();
+</script>
+</body>
+</html>
