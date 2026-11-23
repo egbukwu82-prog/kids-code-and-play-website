@@ -401,6 +401,65 @@ details > div { padding-bottom: 18px; color: var(--muted); max-width: 64ch; disp
 .footer .fine span:last-child { font-family: var(--f-pixel); color: var(--gold); }
 @media (max-width: 720px) { .footer .inner { grid-template-columns: 1fr; } }
 
+/* Young founders */
+.founders-band { background: var(--paper); border-block: 1px solid var(--line); }
+.yf-picker { display: grid; gap: 10px; background: var(--bg); border: 2px solid var(--ink); border-radius: var(--radius); padding: clamp(18px, 3vw, 26px); margin-bottom: 22px; }
+.yf-picker label { font-family: var(--f-display); font-weight: 800; font-size: var(--step-1); }
+.yf-picker input[type="range"] { flex: 1; min-width: 0; accent-color: var(--sun); height: 28px; }
+.yf-picker output { font-family: var(--f-pixel); font-weight: 700; font-size: 2rem; min-width: 2.5ch; text-align: right; color: var(--sun); font-variant-numeric: tabular-nums; }
+.yf-msg { color: var(--muted); }
+.yf-msg b { color: var(--ink); }
+.yf-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.yf { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; outline: 3px solid transparent; outline-offset: 3px; transition: outline-color .2s ease, opacity .2s ease, transform .15s ease; }
+.yf h3 { font-size: 1.12rem; font-weight: 800; }
+.yf p { color: var(--muted); font-size: 0.93rem; }
+.yf p b { color: var(--ink); }
+.yf-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
+.yf-av { width: 48px; height: 48px; display: grid; place-items: center; font-family: var(--f-pixel); font-weight: 700; font-size: 1.15rem; border-radius: 3px; box-shadow: 3px 3px 0 var(--ink); }
+.yf.sky .yf-av { background: var(--tint-sky); color: var(--sky); }
+.yf.pine .yf-av { background: var(--tint-pine); color: var(--pine); }
+.yf.sun .yf-av { background: var(--tint-sun); color: var(--sun); }
+.yf.gold .yf-av { background: var(--tint-gold); color: var(--ink); }
+.yf-age { display: flex; align-items: center; gap: 6px; }
+.yf-age b { font-family: var(--f-pixel); font-weight: 700; font-size: 2.2rem; line-height: 1; color: var(--sun); font-variant-numeric: tabular-nums; }
+.yf-age small { font-family: var(--f-mono); font-size: 0.66rem; line-height: 1.2; color: var(--muted); text-transform: uppercase; }
+.yf-place { font-family: var(--f-mono); font-size: 0.78rem; color: var(--muted); }
+.yf-lesson { margin-top: auto !important; padding-top: 10px; border-top: 1px dashed var(--line); font-family: var(--f-pixel); font-weight: 500; color: var(--ink) !important; font-size: 0.95rem !important; }
+.yf.match { outline-color: var(--sun); transform: translateY(-3px); }
+.yf-grid.picking .yf:not(.match) { opacity: .72; }
+.yf-note { margin-top: clamp(24px, 3vw, 36px); max-width: 70ch; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 12px; }
+.yf-note a { color: var(--sun); font-weight: 700; }
+.yf-fine { margin-top: 12px; font-size: 0.8rem; color: var(--muted); }
+@media (max-width: 1000px) { .yf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .yf-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .yf { transition: none; } .yf.match { transform: none; } }
+.yf-grid { align-items: start; }
+.yf-setup { color: var(--ink) !important; }
+.yf-q { font-family: var(--f-display); font-weight: 800; color: var(--ink) !important; font-size: 1rem !important; margin-top: 4px; }
+.yf-opts { display: grid; gap: 6px; margin-top: 8px; }
+.yf-opt { font: inherit; font-size: 0.9rem; text-align: left; padding: 9px 11px; border-radius: var(--radius); border: 2px solid var(--line); background: var(--paper); color: var(--ink); cursor: pointer; }
+.yf-opt:hover { border-color: var(--ink); }
+.yf-opt[aria-pressed="true"] { border-color: var(--sun); background: var(--tint-sun); font-weight: 700; }
+.yf-reveal { display: grid; gap: 8px; padding-top: 10px; border-top: 1px dashed var(--line); }
+.yf-you { font-family: var(--f-mono); font-size: 0.8rem !important; }
+.yf-turn { background: var(--tint-gold); border-radius: var(--radius); padding: 10px 12px; color: var(--ink) !important; font-family: var(--f-display); font-weight: 600; }
+.yf-turn span { display: block; font-family: var(--f-pixel); font-weight: 500; font-size: 0.8rem; color: var(--sun); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 2px; }
+.yf-again { justify-self: start; font: inherit; font-size: 0.85rem; padding: 6px 10px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: 3px; cursor: pointer; }
+.yf-again:hover { border-color: var(--ink); }
+.yf.answered .yf-ask .yf-opt:not([aria-pressed="true"]) { opacity: .55; }
+.yf-make { margin-top: clamp(32px, 5vw, 56px); display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(20px, 4vw, 48px); align-items: start; background: var(--tint-sun); border-radius: var(--radius); padding: clamp(20px, 3vw, 32px); }
+.yf-make-copy { display: grid; gap: 12px; }
+.yf-make-copy h3 { font-size: var(--step-2); font-weight: 800; }
+.yf-make-copy > p { color: var(--muted); }
+.yf-make label { display: grid; gap: 6px; font-family: var(--f-display); font-weight: 600; font-size: 0.97rem; }
+.yf-make input, .yf-make select { font: inherit; font-family: var(--f-body); font-weight: 400; font-size: 1rem; width: 100%; min-width: 0; padding: 10px 12px; border: 2px solid var(--line); border-radius: var(--radius); background: var(--paper); color: var(--ink); }
+.yf-make input:focus, .yf-make select:focus { outline: none; border-color: var(--sun); }
+.yf-private { font-size: 0.85rem !important; }
+.yf-mine { border: 2px solid var(--ink); box-shadow: 6px 6px 0 var(--sun); background: var(--paper); }
+.yf-mine p span { overflow-wrap: anywhere; }
+@media (max-width: 820px) { .yf-make { grid-template-columns: 1fr; } }
+@media (max-width: 960px) { .nav-links a.nav-wide { display: none; } }
+
 /* Interactive additions */
 .theme-btn { font-family: var(--f-pixel); font-weight: 500; font-size: 0.9rem; padding: 7px 12px; border: 2px solid var(--ink); border-radius: var(--radius); background: transparent; color: var(--ink); cursor: pointer; }
 .theme-btn:hover { background: var(--ink); color: var(--bg); }
@@ -476,6 +535,7 @@ details > div { padding-bottom: 18px; color: var(--muted); max-width: 64ch; disp
     <div class="nav-links">
       <a href="#model">How we teach</a>
       <a href="#conundrums">Conundrums</a>
+      <a href="#founders" class="nav-wide">Founders</a>
       <a href="#programs">Programs</a>
       <a href="#faq">FAQ</a>
       <a href="#volunteer">Volunteer</a>
@@ -488,6 +548,7 @@ details > div { padding-bottom: 18px; color: var(--muted); max-width: 64ch; disp
   <div class="mnav" id="mnav" hidden>
     <a href="#model">How we teach</a>
     <a href="#conundrums">Conundrums</a>
+    <a href="#founders">Young founders</a>
     <a href="#programs">Programs</a>
     <a href="#faq">FAQ</a>
     <a href="#volunteer">Volunteer</a>
@@ -669,6 +730,239 @@ details > div { padding-bottom: 18px; color: var(--muted); max-width: 64ch; disp
           <a class="cn-tile sky" href="https://www.youtube.com/watch?v=5RwD6HJyN8Y" target="_blank" rel="noopener"><span class="cn-px">?</span><b>The Halloween Video Game Conundrum</b><span>Watch ↗</span></a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section band founders-band" id="founders">
+    <div class="inner">
+      <div class="head">
+        <p class="eyebrow">Young founders</p>
+        <h2>They started where you are.</h2>
+        <p class="lede">Every one of these builders began as a curious kid who noticed a problem. Pick what you would have done, then find out what they actually did. There's no wrong answer.</p>
+      </div>
+      <div class="yf-picker">
+        <label for="yf-age">How old are you?</label>
+        <div class="picker-row">
+          <input type="range" id="yf-age" min="5" max="15" value="10">
+          <output id="yf-age-out" for="yf-age">10</output>
+        </div>
+        <p class="yf-msg" id="yf-msg" aria-live="polite"></p>
+      </div>
+      <div class="yf-grid" id="yf-grid">
+        <article class="yf gold" data-age="4">
+          <div class="yf-top">
+            <span class="yf-av" aria-hidden="true">MU</span>
+            <span class="yf-age"><b>4</b><small>age they<br>started</small></span>
+          </div>
+          <h3>Mikaila Ulmer</h3>
+          <span class="yf-place">Austin, Texas</span>
+          <p class="yf-setup">At 4, Mikaila got stung by two bees in one week.</p>
+          <div class="yf-ask">
+            <p class="yf-q">What would you do next?</p>
+            <div class="yf-opts" role="group" aria-label="What would you do next?">
+              <button type="button" class="yf-opt">Stay far away from bees</button>
+              <button type="button" class="yf-opt">Find out why bees sting</button>
+              <button type="button" class="yf-opt">Invent a bee alarm</button>
+            </div>
+          </div>
+          <div class="yf-reveal" aria-live="polite">
+            <p class="yf-you"></p>
+            <p><b>What Mikaila did.</b> Her parents helped her learn about bees instead of staying scared. She found out bees were in trouble, so she opened a lemonade stand using her great-grandma's 1940s recipe, sweetened with honey, and gave part of every sale to help bees. Me &amp; the Bees Lemonade grew to more than 1,500 stores.</p>
+            <p class="yf-turn"><span>Your turn</span>Is there something that scares or bugs you that you could learn more about?</p>
+            <button type="button" class="yf-again">Pick again</button>
+          </div>
+        </article>
+        <article class="yf sky" data-age="12">
+          <div class="yf-top">
+            <span class="yf-av" aria-hidden="true">MZ</span>
+            <span class="yf-age"><b>12</b><small>age they<br>started</small></span>
+          </div>
+          <h3>Mark Zuckerberg</h3>
+          <span class="yf-place">White Plains, New York</span>
+          <p class="yf-setup">At 12, Mark noticed something: the receptionist at his dad's dental office, which was attached to their home, had to shout across the house when a patient arrived.</p>
+          <div class="yf-ask">
+            <p class="yf-q">What would you build?</p>
+            <div class="yf-opts" role="group" aria-label="What would you build?">
+              <button type="button" class="yf-opt">A louder doorbell</button>
+              <button type="button" class="yf-opt">A program so the computers can send messages</button>
+              <button type="button" class="yf-opt">A sign-in sheet on paper</button>
+            </div>
+          </div>
+          <div class="yf-reveal" aria-live="polite">
+            <p class="yf-you"></p>
+            <p><b>What Mark did.</b> He wrote ZuckNet, a messaging program that let the office and the family send messages between computers. He kept building games and apps for friends, and at 19 he built the first version of Facebook in his university dorm room.</p>
+            <p class="yf-turn"><span>Your turn</span>What's something annoying at your home that a small program could fix?</p>
+            <button type="button" class="yf-again">Pick again</button>
+          </div>
+        </article>
+        <article class="yf pine" data-age="15">
+          <div class="yf-top">
+            <span class="yf-av" aria-hidden="true">AM</span>
+            <span class="yf-age"><b>15</b><small>age they<br>started</small></span>
+          </div>
+          <h3>Ann Makosinski</h3>
+          <span class="yf-place">Victoria, BC 🇨🇦</span>
+          <p class="yf-setup">Ann kept seeing old batteries thrown in the trash. On a trip to the Philippines, she saw people who needed light at night and couldn't count on batteries.</p>
+          <div class="yf-ask">
+            <p class="yf-q">What would you invent?</p>
+            <div class="yf-opts" role="group" aria-label="What would you invent?">
+              <button type="button" class="yf-opt">A battery that lasts longer</button>
+              <button type="button" class="yf-opt">A flashlight that needs no battery</button>
+              <button type="button" class="yf-opt">A way to raise money for flashlights</button>
+            </div>
+          </div>
+          <div class="yf-reveal" aria-live="polite">
+            <p class="yf-you"></p>
+            <p><b>What Ann did.</b> At 15 she invented the Hollow Flashlight, which runs on the heat of your hand, with no batteries at all. It won her age group at the Google Science Fair, and she was the only Canadian among the winners that year.</p>
+            <p class="yf-turn"><span>Your turn</span>Who do you know who needs something that doesn't exist yet?</p>
+            <button type="button" class="yf-again">Pick again</button>
+          </div>
+        </article>
+        <article class="yf sun" data-age="16">
+          <div class="yf-top">
+            <span class="yf-av" aria-hidden="true">PC</span>
+            <span class="yf-age"><b>16</b><small>age they<br>started</small></span>
+          </div>
+          <h3>Patrick &amp; John Collison</h3>
+          <span class="yf-place">Rural Ireland</span>
+          <p class="yf-setup">Two brothers from a small village in Ireland taught themselves to code. Patrick won Ireland's Young Scientist award at 16. Later, they noticed that making a website take payments was really hard for coders.</p>
+          <div class="yf-ask">
+            <p class="yf-q">How would you fix that?</p>
+            <div class="yf-opts" role="group" aria-label="How would you fix that?">
+              <button type="button" class="yf-opt">Write a giant step-by-step guide</button>
+              <button type="button" class="yf-opt">Build a tool that does it in a few lines of code</button>
+              <button type="button" class="yf-opt">Take payments for people by hand</button>
+            </div>
+          </div>
+          <div class="yf-reveal" aria-live="polite">
+            <p class="yf-you"></p>
+            <p><b>What Patrick and John did.</b> In 2010, at 21 and 19, they started Stripe. Coders could add payments to a website with just a few lines of code, and it became one of the biggest payment companies in the world.</p>
+            <p class="yf-turn"><span>Your turn</span>What's something hard that you could make easier for other people?</p>
+            <button type="button" class="yf-again">Pick again</button>
+          </div>
+        </article>
+        <article class="yf sky" data-age="17">
+          <div class="yf-top">
+            <span class="yf-av" aria-hidden="true">PL</span>
+            <span class="yf-age"><b>17</b><small>age they<br>started</small></span>
+          </div>
+          <h3>Palmer Luckey</h3>
+          <span class="yf-place">Long Beach, California</span>
+          <p class="yf-setup">Palmer loved video games and wanted to play them in virtual reality, but the VR headsets he could find weren't good enough.</p>
+          <div class="yf-ask">
+            <p class="yf-q">What would you do?</p>
+            <div class="yf-opts" role="group" aria-label="What would you do?">
+              <button type="button" class="yf-opt">Wait for a big company to make a better one</button>
+              <button type="button" class="yf-opt">Take old headsets apart and build his own</button>
+              <button type="button" class="yf-opt">Switch to a different hobby</button>
+            </div>
+          </div>
+          <div class="yf-reveal" aria-live="polite">
+            <p class="yf-you"></p>
+            <p><b>What Palmer did.</b> At 17 he built his first VR headset in his parents' garage, and kept going until he'd built more than 50 versions. At 19 he founded Oculus and later sold it to Facebook for $2 billion. Today he runs Anduril, a defence technology company.</p>
+            <p class="yf-turn"><span>Your turn</span>Palmer built more than 50 versions. How many tries would you give your project?</p>
+            <button type="button" class="yf-again">Pick again</button>
+          </div>
+        </article>
+        <article class="yf pine" data-age="17">
+          <div class="yf-top">
+            <span class="yf-av" aria-hidden="true">VB</span>
+            <span class="yf-age"><b>17</b><small>age they<br>started</small></span>
+          </div>
+          <h3>Vitalik Buterin</h3>
+          <span class="yf-place">Toronto, ON 🇨🇦</span>
+          <p class="yf-setup">Vitalik moved to Canada from Russia when he was 6. At 17, his dad told him about Bitcoin, a new kind of internet money, and he got curious.</p>
+          <div class="yf-ask">
+            <p class="yf-q">How would you learn about it?</p>
+            <div class="yf-opts" role="group" aria-label="How would you learn about it?">
+              <button type="button" class="yf-opt">Watch videos about it</button>
+              <button type="button" class="yf-opt">Write articles explaining it to other people</button>
+              <button type="button" class="yf-opt">Ask an expert to explain it</button>
+            </div>
+          </div>
+          <div class="yf-reveal" aria-live="polite">
+            <p class="yf-you"></p>
+            <p><b>What Vitalik did.</b> He started writing articles about Bitcoin and got paid in bitcoin for them. Then he co-founded Bitcoin Magazine. At 19 he wrote the paper that became Ethereum, one of the biggest blockchain platforms in the world.</p>
+            <p class="yf-turn"><span>Your turn</span>Could you explain something you learned this week to a friend?</p>
+            <button type="button" class="yf-again">Pick again</button>
+          </div>
+        </article>
+        <article class="yf sun" data-age="19">
+          <div class="yf-top">
+            <span class="yf-av" aria-hidden="true">AW</span>
+            <span class="yf-age"><b>19</b><small>age they<br>started</small></span>
+          </div>
+          <h3>Alexandr Wang</h3>
+          <span class="yf-place">Los Alamos, New Mexico</span>
+          <p class="yf-setup">Alex loved math and was working as a programmer by 17. He noticed that AI programs can only learn from examples, and the examples they had were often messy or wrong.</p>
+          <div class="yf-ask">
+            <p class="yf-q">What would you work on?</p>
+            <div class="yf-opts" role="group" aria-label="What would you work on?">
+              <button type="button" class="yf-opt">Make a smarter AI</button>
+              <button type="button" class="yf-opt">Help clean up and label the examples</button>
+              <button type="button" class="yf-opt">Write a report about the problem</button>
+            </div>
+          </div>
+          <div class="yf-reveal" aria-live="polite">
+            <p class="yf-you"></p>
+            <p><b>What Alex did.</b> At 19 he co-founded Scale AI, which prepares and labels the data that AI learns from. Some of the biggest AI companies in the world use it, and today he leads Meta's AI lab.</p>
+            <p class="yf-turn"><span>Your turn</span>If you were teaching a computer to tell cats from dogs, which pictures would you show it?</p>
+            <button type="button" class="yf-again">Pick again</button>
+          </div>
+        </article>
+        <article class="yf gold" data-age="23">
+          <div class="yf-top">
+            <span class="yf-av" aria-hidden="true">IA</span>
+            <span class="yf-age"><b>23</b><small>age they<br>started</small></span>
+          </div>
+          <h3>Iyinoluwa &ldquo;E&rdquo; Aboyeji</h3>
+          <span class="yf-place">Nigeria · studied in Waterloo, ON 🇨🇦</span>
+          <p class="yf-setup">E joined a youth business club in secondary school in Nigeria, then started his first company as a student at the University of Waterloo. He saw that Africa had lots of talented young people who could be great software developers, with few ways to get there.</p>
+          <div class="yf-ask">
+            <p class="yf-q">What would you build?</p>
+            <div class="yf-opts" role="group" aria-label="What would you build?">
+              <button type="button" class="yf-opt">A coding school</button>
+              <button type="button" class="yf-opt">A company that trains developers and connects them to jobs worldwide</button>
+              <button type="button" class="yf-opt">A job-search app</button>
+            </div>
+          </div>
+          <div class="yf-reveal" aria-live="polite">
+            <p class="yf-you"></p>
+            <p><b>What E did.</b> At 23 he co-founded Andela, which finds and trains African software developers and connects them with companies around the world. Then he co-founded Flutterwave, a payments company used across Africa.</p>
+            <p class="yf-turn"><span>Your turn</span>What could you build that helps your own community?</p>
+            <button type="button" class="yf-again">Pick again</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="yf-make" id="yf-make">
+        <div class="yf-make-copy">
+          <p class="eyebrow">Your turn</p>
+          <h3>Make your own founder card.</h3>
+          <p>What would you build, and who is it for? Fill it in and watch your card appear.</p>
+          <label>Nickname<input type="text" id="mk-name" maxlength="24" placeholder="Captain Code" autocomplete="off"></label>
+          <label>Your age
+            <select id="mk-age"><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option selected>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option></select>
+          </label>
+          <label>Something you'd build<input type="text" id="mk-build" maxlength="70" placeholder="A game that teaches my little brother math" autocomplete="off"></label>
+          <label>Who is it for?<input type="text" id="mk-for" maxlength="50" placeholder="Kids who think math is boring" autocomplete="off"></label>
+          <p class="yf-private">Nothing you type is saved or sent anywhere. It stays on this screen.</p>
+        </div>
+        <article class="yf yf-mine sun" aria-live="polite">
+          <div class="yf-top">
+            <span class="yf-av" id="mk-ini" aria-hidden="true">?</span>
+            <span class="yf-age"><b id="mk-age-out">10</b><small>age you're<br>starting</small></span>
+          </div>
+          <h3 id="mk-name-out">You</h3>
+          <span class="yf-place">Kids Code and Play · Cohort 3</span>
+          <p><b>First build.</b> <span id="mk-build-out">Your idea goes here.</span></p>
+          <p><b>Built for.</b> <span id="mk-for-out">The people you want to help.</span></p>
+          <p class="yf-turn"><span>What comes next</span>That part's up to you.</p>
+        </article>
+      </div>
+
+      <p class="yf-note">Some of these founders left university to build their companies. Plenty of great founders finished school first. What they all share is that they started building early, and that's what KCAP is for. <a href="https://docs.google.com/forms/d/e/1FAIpQLSduNY-VZFL6f6ZsAHeRQ4LFdbQPTM2TH-kKA3DKw26mgYKhSA/viewform" target="_blank" rel="noopener">Start building on Sunday →</a></p>
+      <p class="yf-fine">Facts checked November 2026. Kids Code and Play is not affiliated with any of the people or companies shown.</p>
     </div>
   </section>
 
@@ -924,6 +1218,7 @@ details > div { padding-bottom: 18px; color: var(--muted); max-width: 64ch; disp
       <ul>
         <li><a href="#model">How we teach</a></li>
         <li><a href="#conundrums">Conundrums</a></li>
+        <li><a href="#founders">Young founders</a></li>
         <li><a href="#programs">Programs</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="support.html">Support us</a></li>
@@ -1328,6 +1623,61 @@ details > div { padding-bottom: 18px; color: var(--muted); max-width: 64ch; disp
     brkB.addEventListener('click', breakIt);
     againB.addEventListener('click', function () { breakIt(); });
     render();
+  })();
+
+  // Young founders: how old are you?
+  (function () {
+    var r = document.getElementById('yf-age'); if (!r) return;
+    var out = document.getElementById('yf-age-out'), msg = document.getElementById('yf-msg'), grid = document.getElementById('yf-grid');
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.yf'));
+    function names(list) {
+      var n = list.map(function (c) { return c.querySelector('h3').textContent; });
+      return n.length < 2 ? n.join('') : n.slice(0, -1).join(', ') + ' and ' + n[n.length - 1];
+    }
+    function update(pick) {
+      var a = +r.value; out.textContent = a;
+      var started = cards.filter(function (c) { return +c.dataset.age <= a; });
+      var later = cards.length - started.length;
+      cards.forEach(function (c) { c.classList.toggle('match', started.indexOf(c) > -1); });
+      if (pick) grid.classList.add('picking');
+      msg.innerHTML = (started.length ? 'By ' + a + ', <b>' + names(started) + '</b> had already started building. ' : '') +
+        (later ? 'You\u2019re younger than <b>' + later + ' of these ' + cards.length + ' founders</b> were when they started. That\u2019s a head start.' : 'Every founder here had started by your age. Your turn.');
+    }
+    r.addEventListener('input', function () { update(true); });
+    update(false);
+  })();
+
+  // Young founders: pick what you'd do, then see what they did
+  (function () {
+    var grid = document.getElementById('yf-grid'); if (!grid) return;
+    grid.querySelectorAll('.yf').forEach(function (card) {
+      var opts = card.querySelectorAll('.yf-opt'), rev = card.querySelector('.yf-reveal'), you = card.querySelector('.yf-you');
+      rev.hidden = true;
+      opts.forEach(function (o) {
+        o.setAttribute('aria-pressed', 'false');
+        o.addEventListener('click', function () {
+          opts.forEach(function (x) { x.setAttribute('aria-pressed', x === o ? 'true' : 'false'); });
+          you.textContent = 'You picked: ' + o.textContent;
+          card.classList.add('answered'); rev.hidden = false;
+        });
+      });
+      card.querySelector('.yf-again').addEventListener('click', function () {
+        opts.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        card.classList.remove('answered'); rev.hidden = true; opts[0].focus();
+      });
+    });
+    // Make your own founder card (nothing is stored or sent)
+    function $(id) { return document.getElementById(id); }
+    function sync() {
+      var n = $('mk-name').value.trim();
+      $('mk-name-out').textContent = n || 'You';
+      $('mk-ini').textContent = n ? n.split(/\s+/).map(function (w) { return w.charAt(0); }).join('').slice(0, 2).toUpperCase() : '?';
+      $('mk-age-out').textContent = $('mk-age').value;
+      $('mk-build-out').textContent = $('mk-build').value.trim() || 'Your idea goes here.';
+      $('mk-for-out').textContent = $('mk-for').value.trim() || 'The people you want to help.';
+    }
+    ['mk-name', 'mk-age', 'mk-build', 'mk-for'].forEach(function (id) { var el = $(id); if (el) el.addEventListener('input', sync); });
+    if ($('mk-name')) sync();
   })();
 
   // FAQ filter
